@@ -6,6 +6,8 @@ import Login from "./pages/Login/Login";
 import Cadastro from "./pages/Cadastro/Cadastro";
 import Home from "./pages/Home/Home";
 import Suporte from "./pages/Suporte/Suporte";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import './styles/index.scss';
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
         {/* Rotas com layout */}
         <Route element={<DefaultLayout />}>
           <Route path="/home" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Route>
       </Routes>
     </BrowserRouter>

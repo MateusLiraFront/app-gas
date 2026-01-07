@@ -1,24 +1,37 @@
 import './Footer.css'
+import { Link } from "react-router-dom";
 
 
 export default function Footer() {
   return (
-    <footer className="fixed bottom-0 left-0 w-full bg-white shadow z-50">
-      <div className="flex justify-center items-center gap-8 py-4 px-8">
-        <button className="flex flex-col items-center text-xs">
+    <footer className="">
+      <div className="display-footer">
+        <Link 
+         to="/home"
+         className="link">
           <i className="fa-solid fa-house text-xl"></i>
           Home
-        </button>
+        </Link>
 
-        <button className="flex flex-col items-center text-xs">
-<i class="fa-solid fa-chart-column"></i>
+         <Link
+          to="/dashboard"
+          className="link">
+          <i className="fa-solid fa-chart-column" />
           Dashboard
-        </button>
+        </Link>
 
-        <button className="flex flex-col items-center text-xs">
+        <button 
+        className="button-config">
           <i className="fa-solid fa-gear text-xl"></i>
           Config
         </button>
+        
+         <Link
+          to="/login"
+          className="link">
+          <i className="" />
+          Sair
+        </Link>
         
       </div>
     </footer>

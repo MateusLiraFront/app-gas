@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+$text-primary: #0f172a;
+$text-primary-muted: #223658;
+$text-secondary: #e5e7eb;
+$text-secondary-muted:#9ca3af;
+
+$bg-initial: #28C0F7, #4DACF9, #5A80FC, #765EFC, #997DFF;
+$bg-app: rgb(218, 242, 243);
+
+$button-alert: rgb(240, 240, 9);
+$button-danger: rgb(189, 64, 26);
+$button-sucess: rgb(22, 168, 59);
+
+
+:root {
+
+  --text-primary: #{$text-primary};
+  --text-primary-muted: #{$text-primary-muted};
+  --text-secondary: #{$text-secondary};
+  --text-secondary-muted: #{$text-secondary-muted};
+
+  --font-family: "Inter", sans-serif;
+
+  --bg-initial: linear-gradient(45deg, #{$bg-initial});
+  --bg-app: #{$bg-app};
+
+  --btn-alert: #{$button-alert};
+  --btn-danger: #{$button-danger};
+  --btn-sucess: #{$button-sucess};
+  }

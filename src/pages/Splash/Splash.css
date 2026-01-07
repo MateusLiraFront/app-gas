@@ -3,7 +3,7 @@
 }
 
 .splash-container{
-    background: linear-gradient(45deg, #28C0F7, #4DACF9, #5A80FC, #765EFC, #997DFF);
+    background: var(--bg-initial);
     min-height: 100vh;
     min-width: 100vw;
     display: flex;
@@ -11,4 +11,16 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    color: var(--text-secondary);
+}
+
+.link  {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.link:hover  {
+  text-decoration: underline;
+  color: #c5bebe;
 }
