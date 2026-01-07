@@ -1,5 +1,5 @@
 main {
-  background-color: rgb(222, 232, 236)  ;
+  background-color: var(--bg-app);
   color: rgb(37, 37, 73);
     min-width: 100vw;
     min-height: 100vh;
