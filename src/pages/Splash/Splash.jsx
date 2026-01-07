@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './Splash.css';
-import logo from '../../assets/logo-gas.png';
+import logo from '../../assets/logo-gas-second.png';
+import { Link } from "react-router-dom";
 
 export default function Splash() {
    
@@ -9,7 +10,12 @@ export default function Splash() {
                            <div className="login-header text-center mb-4">
                                <img src={logo} alt="Logo" className="app-logo" />
                            </div> 
-                           <h2>Carregando...</h2>
+
+                           <Link
+                            className='link'
+                           to="/login">
+                           <i>Começar</i>
+                           </Link>
                </div>
            
     )
