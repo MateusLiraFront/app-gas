@@ -1,3 +1,14 @@
 .app-logo{
     max-width: 300px;
 }
+
+.splash-container{
+    background: linear-gradient(45deg, #28C0F7, #4DACF9, #5A80FC, #765EFC, #997DFF);
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
