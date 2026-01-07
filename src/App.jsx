@@ -7,6 +7,7 @@ import Cadastro from "./pages/Cadastro/Cadastro";
 import Home from "./pages/Home/Home";
 import Suporte from "./pages/Suporte/Suporte";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Perfil from "./pages/Perfil/Perfil";
 import './styles/index.scss';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route element={<DefaultLayout />}>
           <Route path="/home" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/perfil" element={<Perfil />} />
         </Route>
       </Routes>
     </BrowserRouter>

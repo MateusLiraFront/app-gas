@@ -25,13 +25,7 @@ export default function Footer() {
           <i className="fa-solid fa-gear text-xl"></i>
           Config
         </button>
-        
-         <Link
-          to="/login"
-          className="link">
-          <i className="" />
-          Sair
-        </Link>
+     
         
       </div>
     </footer>

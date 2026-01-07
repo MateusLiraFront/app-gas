@@ -9,6 +9,12 @@ header {
   width: 100% !important;
   height: 80px !important;
   background-color: #4161C9 !important;
-  z-index: 9999 !important;
+  z-index: 1001 !important;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.display-welcome{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
