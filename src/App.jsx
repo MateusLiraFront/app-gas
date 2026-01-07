@@ -7,6 +7,8 @@ import Cadastro from "./pages/Cadastro/Cadastro";
 import Home from "./pages/Home/Home";
 import Suporte from "./pages/Suporte/Suporte";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Dashgeral from "./pages/Dashboard/Dashgeral";
+import Perfil from "./pages/Perfil/Perfil";
 import './styles/index.scss';
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
         <Route element={<DefaultLayout />}>
           <Route path="/home" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashgeral" element={<Dashgeral />} />
+          <Route path="/perfil" element={<Perfil />} />
         </Route>
       </Routes>
     </BrowserRouter>
