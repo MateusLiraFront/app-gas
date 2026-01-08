@@ -6,17 +6,21 @@ import "./DefaultLayout.css";
 
 export default function DefaultLayout() {
   return (
-    <div className="default-layout min-h-screen flex flex-col">
-      <Header />
+    <div className="default-layout ">
+      <div className="header">
+        <Header />
+      </div>
+
       <div className="sidebar">
         <Sidebar />
       </div>
 
-      <main className="">
+      <main className="display-principal">
         <div className="">
           <Outlet />
         </div>
       </main>
+      
       <div className="footer">
         <Footer />
       </div>
