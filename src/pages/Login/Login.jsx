@@ -2,6 +2,8 @@
 import React from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
+import logGoogle from '../../assets/Google.png';
+import logFacebook from '../../assets/Facebook.png';
 
 export default function Login() {
   return (
@@ -14,13 +16,13 @@ export default function Login() {
 
         <div className="social-area">
           <button className="social-btn google">
-            <img src="/Google.png" alt="Google" />
-            Google
+            <img src={logGoogle} alt="Google" />
+            
           </button>
 
           <button className="social-btn facebook">
-            <img src="/Facebook.png" alt="Facebook" />
-            Facebook
+            <img src={logFacebook} alt="Facebook" />
+          
           </button>
         </div>
 
