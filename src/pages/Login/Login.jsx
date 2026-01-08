@@ -1,46 +1,46 @@
-import React, { useState } from 'react'
-import './Login.css';
+
+import React from "react";
+import "./Login.css";
 import { Link } from "react-router-dom";
 
-
 export default function Login() {
-    const [email, setEmail] = useState('')
-    const [senha, setSenha] = useState('')
+  return (
+    <div className="login-container">
+      <div className="login-box">
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-    }
+        <h1 className="title">Login</h1>
 
-    return (
-        <div className='default-container'>
-          
-               <div className="login-header text-center mb-4">
-                <h2 className="text-2xl font-bold text-center">Login</h2>
-                </div>
-                <Link
-                className='button-action'
-                to="/home">
-                Entrar
-                </Link>
-                
-                 <Link
-                  className='link'
-                to="/cadastro">
-                <>Realizar Cadastro</>
-                </Link>
+        <p className="subtitle">Login com:</p>
 
-                 <Link
-                  className='link'
-                to="/suporte">
-                <>Esqueci a senha</>
-                </Link>
+        <div className="social-area">
+          <button className="social-btn google">
+            <img src="/Google.png" alt="Google" />
+            Google
+          </button>
 
-                 <Link
-                  className='link'
-                to="/">
-                <>sair</>
-                </Link>
-                
-            </div>
-    )
+          <button className="social-btn facebook">
+            <img src="/Facebook.png" alt="Facebook" />
+            Facebook
+          </button>
+        </div>
+
+        <p className="subtitle">Login com Email e Senha:</p>
+
+        <input type="email" placeholder="E-mail" />
+        <input type="password" placeholder="Senha" />
+
+        <Link className="forgot" to="/suporte">
+          Esqueceu Email ou Senha?
+        </Link>
+
+        <button className="btn-login">ENTRAR</button>
+
+        <p className="footer-text">
+          Não possui uma conta?
+          <Link to="/cadastro"> Clique aqui</Link>
+        </p>
+
+      </div>
+    </div>
+  );
 }
