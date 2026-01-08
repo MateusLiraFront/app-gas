@@ -14,21 +14,24 @@
 }
 
 .login-box {
-  width: 100%;
-  max-width: 360px;
+  width: 100vw;
+  min-width: 360px;
   padding: 32px 24px;
   color: #fff;
   text-align: center;
+  display: flex;
+    flex-direction: column;
+  align-items: center;
 }
 
 .title {
-  font-size: 26px;
-  margin-bottom: 20px;
+  font-size: 36px;
+  margin-bottom: 50px;
 }
 
 .subtitle {
   font-size: 14px;
-  margin-bottom: 14px;
+  margin-bottom: 0px;
 }
 
 
@@ -48,7 +51,7 @@
 
 
 .social-btn img {
-  height: 48px;   
+  height: 80px;   
   width: auto;
   transform: scale(1.9);
 }
@@ -56,12 +59,12 @@
 /* INPUTS */
 .login-box input {
   width: 100%;
+  max-width: 400px;
   height: 48px;
   border-radius: 14px;
   border: none;
   padding: 0 14px;
   margin-bottom: 12px;
-
   background: #ffffff;
   color: #000000;
 }
@@ -73,6 +76,7 @@
 /* ESQUECI */
 .forgot {
   display: block;
+  /* align-self: flex-end; */
   text-align: right;
   font-size: 12px;
   color: #fff;
@@ -82,11 +86,30 @@
 
 /* BOTÃO LOGIN */
 .btn-login {
-  width: 100%;
+  min-width: 390px;
+  max-width: 390px;
   height: 48px;   /* REFERÊNCIA DE TAMANHO */
   border-radius: 14px;
   border: none;
   background: #2b1fa8;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  text-align: center;
+  display: flex;
+  align-items: center;      
+  justify-content: center; 
+  text-decoration: none; 
+}
+
+.btn-login:hover {
+  min-width: 390px;
+  max-width: 390px;
+  height: 48px;   
+  border-radius: 14px;
+  border: none;
+  background: #120d50;
   color: #fff;
   font-size: 16px;
   font-weight: 600;
