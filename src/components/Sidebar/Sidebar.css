@@ -26,3 +26,11 @@
     background-color: rgb(18, 15, 37);
     padding: 10px;
 }
+
+
+@media (min-width:800px){
+ 
+    /* .item.um{
+        display: none;
+    } */
+}

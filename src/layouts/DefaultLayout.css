@@ -5,3 +5,12 @@
     width: 100%;
   
 }
+
+@media (min-width:800px){
+    .sidebar{
+        display: none;
+    }
+    .footer{
+        display: none;
+    }
+}
