@@ -31,7 +31,7 @@
   margin-bottom: 14px;
 }
 
-/* ===== GOOGLE / FACEBOOK ===== */
+
 .social-area {
   display: flex;
   justify-content: center;
@@ -46,9 +46,9 @@
   cursor: pointer;
 }
 
-/* 🔥 MESMA ALTURA DO BOTÃO ENTRAR */
+
 .social-btn img {
-  height: 48px;   /* ⬅️ IGUAL AO LOGIN */
+  height: 48px;   
   width: auto;
   transform: scale(1.9);
 }
