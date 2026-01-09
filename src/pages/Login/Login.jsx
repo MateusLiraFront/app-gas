@@ -1,9 +1,9 @@
-
 import React from "react";
-import "./Login.css";
 import { Link } from "react-router-dom";
-import logGoogle from '../../assets/Google.png';
-import logFacebook from '../../assets/Facebook.png';
+import "./Login.css";
+
+import GoogleLogo from "../../assets/Google.png";
+import FacebookLogo from "../../assets/Facebook.png";
 
 export default function Login() {
   return (
@@ -16,20 +16,18 @@ export default function Login() {
 
         <div className="social-area">
           <button className="social-btn google">
-            <img src={logGoogle} alt="Google" />
-            
+            <img src={GoogleLogo} alt="Login com Google" />
           </button>
 
           <button className="social-btn facebook">
-            <img src={logFacebook} alt="Facebook" />
-          
+            <img src={FacebookLogo} alt="Login com Facebook" />
           </button>
         </div>
 
         <p className="subtitle">Login com Email e Senha:</p>
 
-        <input type="email" placeholder="E-mail" />
-        <input type="password" placeholder="Senha" />
+        <input className="input" type="email" placeholder="E-mail" />
+        <input className="input" type="password" placeholder="Senha" />
 
         <Link className="forgot" to="/suporte">
           Esqueceu Email ou Senha?
@@ -46,3 +44,6 @@ export default function Login() {
     </div>
   );
 }
+
+
+
