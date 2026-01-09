@@ -1,45 +1,45 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Login.css";
-
-import GoogleLogo from "../../assets/Google.png";
-import FacebookLogo from "../../assets/Facebook.png";
+import { Link } from "react-router-dom";
+import logGoogle from "../../assets/Google.png";
+import logFacebook from "../../assets/Facebook.png";
 
 export default function Login() {
   return (
     <div className="login-container">
       <div className="login-box">
-
         <h1 className="title">Login</h1>
 
-        <p className="subtitle">Login com:</p>
+        <label className="subtitle">Login com:</label>
 
         <div className="social-area">
           <button className="social-btn google">
-            <img src={GoogleLogo} alt="Login com Google" />
+            <img src={logGoogle} alt="Google" />
           </button>
 
           <button className="social-btn facebook">
-            <img src={FacebookLogo} alt="Login com Facebook" />
+            <img src={logFacebook} alt="Facebook" />
           </button>
         </div>
 
         <p className="subtitle">Login com Email e Senha:</p>
-
-        <input className="input" type="email" placeholder="E-mail" />
-        <input className="input" type="password" placeholder="Senha" />
+        <div className="display-input">
+          <input type="email" placeholder="E-mail" />
+          <input type="password" placeholder="Senha" />
+        </div>
 
         <Link className="forgot" to="/suporte">
           Esqueceu Email ou Senha?
         </Link>
 
-        <button className="btn-login">ENTRAR</button>
+        <Link className="btn-login" to="/home">
+          ENTRAR
+        </Link>
 
         <p className="footer-text">
           Não possui uma conta?
           <Link to="/cadastro"> Clique aqui</Link>
         </p>
-
       </div>
     </div>
   );

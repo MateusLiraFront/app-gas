@@ -1,11 +1,10 @@
 main {
   background-color: var(--bg-app);
   color: rgb(37, 37, 73);
-    min-width: 100vw;
-    min-height: 100vh;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+  min-width: 100vw;
+  min-height: 87vh;
+  display: flex !important;
+  justify-content: center !important;
   padding-top: 20px !important;
   padding-bottom: 20px !important;
 }
