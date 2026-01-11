@@ -5,12 +5,21 @@
   font-family: Arial, sans-serif;
 }
 
+
 .login-container {
   min-height: 100vh;
-  background: linear-gradient(180deg, #7b61ff, #4fa3e3);
+  background: var(--bg-initial);
+ /* background-size: 400% 400%;
+   animation: gradientShift 12s ease infinite; */
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .login-box {
