@@ -69,23 +69,29 @@
 
 .socialArea {
   display: flex;
-  gap: 12px;
+  justify-content: center;
+  gap: 16px;
 }
 
 .socialBtn {
+  height: 42px;
+  padding: 0 18px;
   flex: 1;
   height: 44px;
-  background: #fff;
+  background: none;
   border: none;
-  border-radius: 12px;
+  border-radius: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
 }
 
 .socialBtn img {
-  width: 20px;
+  height: 80px;   
+  width: auto;
+  transform: scale(1.9);
 }

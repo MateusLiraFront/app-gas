@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Suport.module.css";
+import styles from "./Suporte.module.css";
 import { Link } from "react-router-dom";
 import logGoogle from "../../assets/Google.png";
 import logFacebook from "../../assets/Facebook.png";
@@ -26,12 +26,12 @@ export default function Suporte() {
         <div className={styles.socialArea}>
           <button className={styles.socialBtn}>
             <img src={logGoogle} alt="Google" />
-            Google
+            
           </button>
 
           <button className={styles.socialBtn}>
             <img src={logFacebook} alt="Facebook" />
-            Facebook
+            
           </button>
         </div>
       </div>
