@@ -4,42 +4,38 @@ import { Link } from "react-router-dom";
 import logGoogle from "../../assets/Google.png";
 import logFacebook from "../../assets/Facebook.png";
 
-export default function Login() {
+export default function Suporte() {
   return (
     <div className="login-container">
       <div className="login-box">
+
         <h1 className="title">Recuperar Senha</h1>
+        <p className="subtitle">Digite o e-mail cadastrado</p>
 
-        <label className="subtitle">Login com:</label>
+        <label className="label">E-mail</label>
+        <input type="email" placeholder="" />
 
-        <div className="social-area">
-          <button className="social-btn google">
-            <img src={logGoogle} alt="Google" />
-          </button>
-
-          <button className="social-btn facebook">
-            <img src={logFacebook} alt="Facebook" />
-          </button>
-        </div>
-
-        <p className="subtitle">Login com Email e Senha:</p>
-        <div className="display-input">
-          <input type="email" placeholder="E-mail" />
-          <input type="password" placeholder="Senha" />
-        </div>
-
-        <Link className="forgot" to="/suporte">
-          Esqueceu Email ou Senha?
-        </Link>
-
-        <Link className="btn-login" to="/home">
-          ENVIAR
-        </Link>
+        <button className="btn-login">ENVIAR</button>
 
         <p className="footer-text">
           Não possui uma conta?
           <Link to="/cadastro"> Clique aqui</Link>
         </p>
+
+        <p className="divider">Ou faça Login com:</p>
+
+        <div className="social-area">
+          <button className="social-btn">
+            <img src={logGoogle} alt="Google" />
+            Google
+          </button>
+
+          <button className="social-btn">
+            <img src={logFacebook} alt="Facebook" />
+            Facebook
+          </button>
+        </div>
+
       </div>
     </div>
   );
