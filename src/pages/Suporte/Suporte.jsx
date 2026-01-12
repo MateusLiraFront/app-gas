@@ -1,41 +1,39 @@
 import React from "react";
-import "./Suporte.css";
+import styles from "./Suporte.module.css";
 import { Link } from "react-router-dom";
 import logGoogle from "../../assets/Google.png";
 import logFacebook from "../../assets/Facebook.png";
 
 export default function Suporte() {
   return (
-    <div className="login-container">
-      <div className="login-box">
+    <div className={styles.loginContainer}>
+      <div className={styles.loginBox}>
+        <h1 className={styles.title}>Recuperar Senha</h1>
+        <p className={styles.subtitle}>Digite o e-mail cadastrado</p>
 
-        <h1 className="title">Recuperar Senha</h1>
-        <p className="subtitle">Digite o e-mail cadastrado</p>
-
-        <label className="label">E-mail</label>
+        <label className={styles.label}>E-mail</label>
         <input type="email" placeholder="" />
 
-        <button className="btn-login">ENVIAR</button>
+        <button className={styles.btnLogin}>ENVIAR</button>
 
-        <p className="footer-text">
+        <p className={styles.footerText}>
           Não possui uma conta?
           <Link to="/cadastro"> Clique aqui</Link>
         </p>
 
-        <p className="divider">Ou faça Login com:</p>
+        <p className={styles.divider}>Ou faça Login com:</p>
 
-        <div className="social-area">
-          <button className="social-btn">
+        <div className={styles.socialArea}>
+          <button className={styles.socialBtn}>
             <img src={logGoogle} alt="Google" />
             Google
           </button>
 
-          <button className="social-btn">
+          <button className={styles.socialBtn}>
             <img src={logFacebook} alt="Facebook" />
             Facebook
           </button>
         </div>
-
       </div>
     </div>
   );

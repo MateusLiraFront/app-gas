@@ -5,8 +5,12 @@
   font-family: Arial, sans-serif;
 }
 
+.test {
+  color: red !important;
+  font-size: 40px;
+}
 
-.login-container {
+.loginContainer {
   min-height: 100vh;
   background: var(--bg-initial);
  /* background-size: 400% 400%;
@@ -22,7 +26,7 @@
   100% { background-position: 0% 50%; }
 }
 
-.login-box {
+.loginBox {
   width: 100vw;
   min-width: 360px;
   padding: 32px 24px;
@@ -44,14 +48,14 @@
 }
 
 
-.social-area {
+.social_area {
   display: flex;
   justify-content: center;
   gap: 24px;
   margin-bottom: 26px;
 }
 
-.social-btn {
+.socialBtn {
   background: transparent;
   border: none;
   padding: 0;
@@ -59,14 +63,14 @@
 }
 
 
-.social-btn img {
+.socialBtn img {
   height: 80px;   
   width: auto;
   transform: scale(1.9);
 }
 
 /* INPUTS */
-.login-box input {
+.loginBox input {
   width: 100%;
   max-width: 400px;
   height: 48px;
@@ -78,7 +82,7 @@
   color: #000000;
 }
 
-.login-box input::placeholder {
+.loginBox input::placeholder {
   color: #777;
 }
 
@@ -94,7 +98,7 @@
 }
 
 /* BOTÃO LOGIN */
-.btn-login {
+.btnLogin {
   min-width: 390px;
   max-width: 390px;
   height: 48px;   /* REFERÊNCIA DE TAMANHO */
@@ -112,7 +116,7 @@
   text-decoration: none; 
 }
 
-.btn-login:hover {
+.btnLogin:hover {
   min-width: 390px;
   max-width: 390px;
   height: 48px;   
@@ -125,20 +129,7 @@
   margin-bottom: 18px;
 }
 
-.footer-text {
+.footerText {
   font-size: 12px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
