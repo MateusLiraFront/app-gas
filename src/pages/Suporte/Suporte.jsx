@@ -33,7 +33,7 @@ export default function Login() {
         </Link>
 
         <Link className="btn-login" to="/home">
-          ENTRAR
+          ENVIAR
         </Link>
 
         <p className="footer-text">
