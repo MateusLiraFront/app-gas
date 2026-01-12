@@ -1,29 +1,29 @@
-import "./Percent.css";
+import styles from "./Percent.module.css";
 
 export default function Percent({ percent }) {
   const getColorClass = () => {
-    if (percent < 40) return "color-red";
-    if (percent <= 60) return "color-yellow";
-    return "color-green";
+    if (percent < 40) return "colorRed";
+    if (percent <= 60) return "colorYellow";
+    return "colorGreen";
   };
 
   return (
     <div className="flex justify-center items-center min-h-screen">
-      <div className={`display ${getColorClass()}`}>
-        <div className="body"></div>
-        <div className="top"></div>
-        <div className="bot"></div>
+      <div className={`${styles.display} ${styles[getColorClass()]}`}>
+        <div className={styles.body}></div>
+        <div className={styles.top}></div>
+        <div className={styles.bot}></div>
 
-        <div className="alca"></div>
+        <div className={styles.alca}></div>
 
-        <div className="pin">
-          <div className="pin-vert"></div>
-          <div className="pin-hor"></div>
+        <div className={styles.pin}>
+          <div className={styles.pinVert}></div>
+          <div className={styles.pinHor}></div>
         </div>
 
-        <div className="center"></div>
+        <div className={styles.center}></div>
 
-        <label className="percent">{percent}%</label>
+        <label className={styles.percent}>{percent}%</label>
       </div>
     </div>
   );

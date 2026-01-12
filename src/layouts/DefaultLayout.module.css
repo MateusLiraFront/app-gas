@@ -1,4 +1,4 @@
-.default-layout {
+.defaultLayout {
     margin: 0 auto;
     width: 100%;
 }
@@ -8,7 +8,7 @@
 } */
 
 @media (min-width:800px){
-    .display-principal{
+    .displayPrincipal{
     height: 100vh;
     top: 0 !important;
     margin-top: 80px;
@@ -22,7 +22,7 @@
     }
 }
 @media (max-width:800px){
-    .display-principal{
+    .displayPrincipal{
         height: 100vh;
         top: 0 !important;
         background-color: rgb(196, 230, 236);

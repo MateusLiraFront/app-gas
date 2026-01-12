@@ -1,4 +1,4 @@
-import "./Sidebar.css";
+import styles from "./Sidebar.module.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -6,29 +6,35 @@ export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <div className={`sidebar-display ${isOpen ? "open" : "closed"}`}>
-      <div className="sidebar-display">
-        <div className="itens-display">
-          
-          <i
-            className={`fa-solid ${
-              isOpen ? "fa-circle-right icon-arrow open" : "fa-circle-left icon-arrow closed"
-            }`}
-            style={{ color: "#e0ad07ff" }}
-            onClick={() => setIsOpen(!isOpen)}
-          ></i>
+    <div
+  className={`${styles.sidebarDisplay} ${
+    isOpen ? styles.open : styles.closed
+  }`}
+>
+  <div className={styles.sidebarInner}>
+    <div className={styles.itensDisplay}>
 
-          <Link to="/perfil" className="link item um">
-            <i className="" />
-            Perfil
-          </Link>
+      <i
+        className={`fa-solid ${
+          isOpen ? "fa-circle-right" : "fa-circle-left"
+        } ${styles.iconArrow} ${
+          isOpen ? styles.open : styles.closed
+        }`}
+        style={{ color: "#e0ad07ff" }}
+        onClick={() => setIsOpen(!isOpen)}
+      ></i>
 
-          <Link to="/login" className="link item">
-            <i className="" />
-            Sair
-          </Link>
-        </div>
-      </div>
+      <Link to="/perfil" className={`${styles.link} ${styles.item}`}>
+        Perfil
+      </Link>
+
+      <Link to="/login" className={`${styles.link} ${styles.item}`}>
+        Sair
+      </Link>
+
     </div>
+  </div>
+</div>
+
   );
 }

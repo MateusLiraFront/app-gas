@@ -2,20 +2,17 @@
   position: relative;
 }
 
-/* 🎯 CORES DINÂMICAS */
-.color-red {
+.colorRed {
   --main-color: #dc2626;
 }
 
-.color-yellow {
+.colorYellow {
   --main-color: #facc15;
 }
 
-.color-green {
+.colorGreen {
   --main-color: #16a34a;
 }
-
-/* --------- ESTRUTURA --------- */
 
 .body {
   margin-top: 100px;
@@ -72,7 +69,7 @@
   margin-left: 60px;
 }
 
-.pin-hor {
+.pinHor {
   position: absolute;
   width: 60px;
   height: 20px;
@@ -82,7 +79,7 @@
   margin-left: 60px;
 }
 
-.pin-vert {
+.pinVert {
   position: absolute;
   width: 30px;
   height: 80px;

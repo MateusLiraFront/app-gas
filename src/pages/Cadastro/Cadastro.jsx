@@ -1,26 +1,21 @@
-import React, { useState } from 'react'
-import './Cadastro.css';
+import React, { useState } from "react";
+import styles from "./Cadastro.module.css";
 import { Link } from "react-router-dom";
 
 export default function Cadastro() {
-   
-    return (
-          <div className='default-container'>
-          
-               <div className="login-header text-center mb-4">
-                <h2 className="text-2xl font-bold text-center">Cadastro</h2>
-                </div>
-                    <Link
-                    className='button-action'
-                    to="/home">
-                    Cadastrar
-                    </Link>
+  return (
+    <div className={styles.defaultContainer}>
+      <div className={styles.loginHeader}>
+        <h2 className={styles.title}>Cadastro</h2>
+      </div>
 
-                   <Link
-                    className='link'
-                    to="/login">
-                    <>Já possuo cadastro</>
-                    </Link>
-            </div>
-    )
+      <Link className={styles.buttonAction} to="/home">
+        Cadastrar
+      </Link>
+
+      <Link className={styles.link} to="/login">
+        Já possuo cadastro
+      </Link>
+    </div>
+  );
 }

@@ -2,26 +2,26 @@ import { Outlet } from "react-router-dom";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import Sidebar from "../components/Sidebar/Sidebar";
-import "./DefaultLayout.css";
+import styles from "./DefaultLayout.module.css";
 
 export default function DefaultLayout() {
   return (
-    <div className="default-layout ">
-      <div className="header">
+    <div className={styles.defaultLayout}>
+      <div className={styles.header}>
         <Header />
       </div>
 
-      <div className="sidebar">
+      <div className={styles.sidebar}>
         <Sidebar />
       </div>
 
-      <main className="display-principal">
-        <div className="">
+      <main className={styles.displayPrincipal}>
+        <div>
           <Outlet />
         </div>
       </main>
-      
-      <div className="footer">
+
+      <div className={styles.footer}>
         <Footer />
       </div>
     </div>

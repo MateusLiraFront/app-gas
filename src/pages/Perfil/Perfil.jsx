@@ -1,11 +1,12 @@
-import "./Perfil.css";
+import styles from "./Perfil.module.css";
 
 export default function Perfil() {
   return (
-    <div className="display-perfil ">
-        <i class="fa-solid fa-user perfil"></i>
-      <h1>Perfil - Usuario Fulano</h1>
-      <h2>Editar dados</h2>
+    <div className={styles.displayPerfil}>
+      <i className={`fa-solid fa-user ${styles.perfil}`}></i>
+
+      <h1 className={styles.title}>Perfil - Usuário Fulano</h1>
+      <h2 className={styles.subtitle}>Editar dados</h2>
     </div>
   );
 }
