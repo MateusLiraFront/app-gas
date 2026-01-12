@@ -1,4 +1,4 @@
-.login-Container {
+.loginContainer {
   min-height: 100vh;
   background: linear-gradient(180deg, #7b5cff, #2bb0e6);
   display: flex;
@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.login-box {
+.loginBox {
   width: 100%;
   max-width: 400px;
   padding: 32px 24px;
@@ -31,7 +31,7 @@
   margin-bottom: 10px;
 }
 
-.login-box input {
+.loginBox input {
   width: 100%;
   height: 52px;
   border-radius: 18px;
@@ -40,7 +40,7 @@
   margin-bottom: 16px;
 }
 
-.btn-login {
+.btnLogin {
   width: 100%;
   height: 48px;
   border-radius: 14px;
@@ -52,12 +52,12 @@
   margin-bottom: 16px;
 }
 
-.footer-text {
+.footerText {
   font-size: 12px;
   margin-bottom: 24px;
 }
 
-.footer-text a {
+.footerText a {
   color: #fff;
   font-weight: 600;
 }
@@ -67,12 +67,12 @@
   margin-bottom: 12px;
 }
 
-.social-area {
+.socialArea {
   display: flex;
   gap: 12px;
 }
 
-.social-btn {
+.socialBtn {
   flex: 1;
   height: 44px;
   background: #fff;
@@ -82,10 +82,11 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-weight: 600;
   cursor: pointer;
 }
 
-.social-btn img {
-  width: 20px;
+.socialBtn img {
+  height: 80px;
+   width: auto;
+  transform: scale(1.9);
 }
