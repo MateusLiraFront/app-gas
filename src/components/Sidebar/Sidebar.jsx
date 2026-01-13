@@ -8,7 +8,7 @@ export default function Sidebar() {
   return (
     <div
   className={`${styles.sidebarDisplay} ${
-    isOpen ? styles.open : styles.closed
+    isOpen ? styles.closed : styles.open
   }`}
 >
   <div className={styles.sidebarInner}>
@@ -16,9 +16,9 @@ export default function Sidebar() {
 
       <i
         className={`fa-solid ${
-          isOpen ? "fa-circle-right" : "fa-circle-left"
+          isOpen ? "fa-circle-left" : "fa-circle-right"
         } ${styles.iconArrow} ${
-          isOpen ? styles.open : styles.closed
+          isOpen ?  styles.closed : styles.open
         }`}
         style={{ color: "#e0ad07ff" }}
         onClick={() => setIsOpen(!isOpen)}
@@ -38,3 +38,5 @@ export default function Sidebar() {
 
   );
 }
+
+

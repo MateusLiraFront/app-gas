@@ -1,10 +1,80 @@
 main {
-  background-color: var(--bg-app);
-  color: rgb(37, 37, 73);
+  color: rgb(254, 254, 255);
   min-width: 100vw;
   min-height: 87vh;
   display: flex !important;
   justify-content: center !important;
   padding-top: 20px !important;
   padding-bottom: 20px !important;
+}
+
+.title{
+  margin-top: 10px;
+}
+
+.homeContainer{
+  max-width: 80vw;
+}
+
+.card{
+  background-color: #FAFAFA;
+  margin-top: 20px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #394550;
+  padding: 15px;
+}
+
+.displayItem{
+   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+.displayConsumo{
+  background-color: #e3e8ee;
+  border-radius: 16px;
+  margin-top: 10px;
+}
+
+.botijao{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.botija{
+  margin-top: -60px;
+    transform: scale(0.6);
+     width: calc(300px * 0.6);
+  height: calc(450px * 0.6);
+}
+
+.displayDetail{
+  margin-top: -60px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 80px;
+}
+
+.botaoDetail{
+  background-color: darkslategray;
+  color: #e3e8ee;
+  padding: 8px;
+  border-radius: 10px;
+   text-decoration: none; 
+}
+
+.detalhes{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
 }

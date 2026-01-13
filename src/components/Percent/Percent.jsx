@@ -1,6 +1,6 @@
 import styles from "./Percent.module.css";
 
-export default function Percent({ percent }) {
+export function Percent({ percent, className }) {
   const getColorClass = () => {
     if (percent < 40) return "colorRed";
     if (percent <= 60) return "colorYellow";
@@ -8,7 +8,7 @@ export default function Percent({ percent }) {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen">
+    <div className={`${styles.wrapper} ${className || ""}`}>
       <div className={`${styles.display} ${styles[getColorClass()]}`}>
         <div className={styles.body}></div>
         <div className={styles.top}></div>
@@ -27,4 +27,12 @@ export default function Percent({ percent }) {
       </div>
     </div>
   );
+}
+
+export function Status(){
+  return(
+
+      <label style={{ color: "#d49100" }}>Mediano</label>
+   
+  )
 }

@@ -30,6 +30,7 @@ export default function Footer() {
       Config
     </button>
 
+
   </div>
 </footer>
 

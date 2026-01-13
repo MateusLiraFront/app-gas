@@ -1,6 +1,7 @@
 .defaultLayout {
     margin: 0 auto;
     width: 100%;
+    
 }
 
 /* .header{
@@ -9,23 +10,26 @@
 
 @media (min-width:800px){
     .displayPrincipal{
-    height: 100vh;
-    top: 0 !important;
-    margin-top: 80px;
-    background-color: rgb(196, 230, 236);
-}
+        height: 100%;
+        top: 0 !important;
+        margin-top: 80px;
+        background: var(--bg-app);
+    }
     .sidebar{
         display: none;
     }
     .footer{
         display: none;
     }
+     .appLogo{
+        width: 200px;
+    }
 }
 @media (max-width:800px){
     .displayPrincipal{
-        height: 100vh;
+        height: 100%;
         top: 0 !important;
-        background-color: rgb(196, 230, 236);
+       background: var(--bg-app);
     }
     .header{
         display: none;
@@ -38,5 +42,9 @@
         margin-top: 0 !important;
         height: 100vh;
         z-index: 1010;
+    }
+
+    .appLogo{
+        width: 120px;
     }
 }
