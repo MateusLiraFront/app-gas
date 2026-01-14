@@ -1,106 +1,228 @@
-.dashboardContainer {
-  max-width: 80vw;
+.container {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #5c4ee5 0%, #1a1464 100%);
+  color: white;
   display: flex;
-  align-items: flex-start;
   flex-direction: column;
-  padding-bottom: 80px;
+  align-items: center;
+  padding-bottom: 100px;
 }
 
-.appLogo{
-    margin-bottom: 20px;
+.header {
+  width: 100%;
+  background-color: #1d408f;
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
 }
 
-.general{
-    background-color: rgb(16, 7, 97);
-    color: rgb(251, 253, 255);
-    padding: 6px 20px;
-    border-radius: 15px;
+.navContent {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.cardDisplay{
-    width: 80vw;
-    background-color: rgb(248, 252, 255);
-    color: #231a42;
-    border-radius: 18px;
+.logoArea {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 40px;
+  height: auto;
+}
+
+.brandName {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.centerNav {
+  display: flex;
+  gap: 40px;
+}
+
+.centerNav a {
+  color: white;
+  text-decoration: none;
+}
+
+.activeLink {
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+
+.exitLink {
+  color: white;
+  text-decoration: none;
+}
+
+.mainContent {
+  width: 90%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.selector {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.gasName {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.responsiveGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  align-items: center;
+}
+
+.chartCard {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 400px;
+  border-radius: 25px;
+  padding: 25px;
+}
+
+.chartMain {
+  display: flex;
+  height: 180px;
+  margin-bottom: 15px;
+}
+
+.yAxis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 12px;
+  padding-right: 15px;
+  color: #ccc;
+  text-align: right;
+  min-width: 40px;
+}
+
+.barsContainer {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bar {
+  width: 20px;
+  border-radius: 10px;
+}
+
+.barBlue {
+  background: linear-gradient(180deg, #101630 0%, #1d2749 100%);
+}
+
+.barGreen {
+  background: linear-gradient(180deg, #6dae81 0%, #4a8a5f 100%);
+}
+
+.barLabel {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.chartFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+}
+
+.badgeMensal {
+  background: #3b2fb3;
+  border: none;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 8px;
+}
+
+.periodSection {
+  width: 100%;
+  max-width: 400px;
+}
+
+.periodList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.periodItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+}
+
+.dotDarkBlue { background-color: #101630; }
+.dotLightGreen { background-color: #6dae81; }
+.dotGold { background-color: #b38b2f; }
+
+.bottomNavMobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .header {
+    display: none;
+  }
+
+  .mainContent {
+    margin-top: 40px;
+  }
+  
+  .bottomNavMobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #1a1464;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 0 20px;
-    margin-top: 30px;
+    justify-content: space-around;
+    padding: 20px 0;
+    z-index: 100;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .bottomNavMobile a {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 20px;
+  }
+  
+  .bottomNavMobile a.active {
+    color: white;
+  }
 }
 
-.nav{
-    display: flex;
+@media (min-width: 1024px) {
+  .responsiveGrid {
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-     width: 100%;
-    padding: 14px;
-}
-
-.gasName{
-    font-size: 22px;
-}
-.arrows{
-    font-size: 30px;
-    color: #98add3;
-    cursor: pointer;
-}
-
-.grafico{
-    width: 90%;
-    height: 300px;
-    background-color: #daecf7;
-    border-radius: 15px;
-}
-
-.periodoDisplay{
-    margin-top: 30px;
-    width: 60vw;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.periodo{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-}
-
-.pointer{
-    width: 10px;
-    height: 10px;
-}
-
-.pointer.A{
-    background-color: #c48027;
-}
-.pointer.B{
-    background-color: #12405c;
-}
-.pointer.C{
-    background-color: #2ccf47;
-}
-
-@media(min-width:800px){
-  .appLogo{
-        width: 120px;
-    }
-    .title{
-        font-size: 30px;
-    } 
-}
-
-@media(max-width:800px){
-  .appLogo{
-        width: 120px;
-    }
-    .title{
-        font-size: 30px;
-    } 
-    label{
-        font-size: 18px;
-    }
+    justify-content: center;
+    gap: 50px;
+  }
 }
