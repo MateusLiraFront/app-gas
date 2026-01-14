@@ -4,7 +4,7 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import Sidebar from "../components/Sidebar/Sidebar";
 import styles from "./DefaultLayout.module.css";
-import logo from "../assets/logo-header-light.png";
+
 
 export default function DefaultLayout() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +25,7 @@ export default function DefaultLayout() {
 
       <main className={styles.displayPrincipal}>
         <div>
-          <img src={logo} alt="Logo" className={styles.appLogo} />
+       
           <Outlet />
         </div>
       </main>

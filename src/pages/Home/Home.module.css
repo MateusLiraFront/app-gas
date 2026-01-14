@@ -1,5 +1,5 @@
 main {
-  color: rgb(254, 254, 255);
+  color: rgb(251, 253, 255);
   min-width: 100vw;
   min-height: 87vh;
   display: flex !important;
@@ -8,8 +8,27 @@ main {
   padding-bottom: 20px !important;
 }
 
-.title{
-  margin-top: 10px;
+.appLogo{
+    margin-bottom: 20px;
+}
+
+.nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+     width: 100%;
+    padding: 14px 0;
+}
+
+.gasName{
+    font-size: 22px;
+}
+
+.arrows{
+    font-size: 30px;
+    color: #98add3;
+    cursor: pointer;
 }
 
 .homeContainer{
@@ -17,28 +36,26 @@ main {
 }
 
 .card{
-  background-color: #FAFAFA;
-  margin-top: 20px;
-  border-radius: 30px;
+  background-color: rgb(248, 252, 255);
+  margin-top: 30px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #394550;
-  padding: 15px;
+  padding: 0 15px 15px;
 }
 
 .displayItem{
    display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 80px;
 }
 
 .displayConsumo{
-  background-color: #e3e8ee;
-  border-radius: 16px;
-  margin-top: 10px;
+  background-color: #daecf7;
+  border-radius: 20px;
 }
 
 .botijao{
@@ -49,14 +66,14 @@ main {
 }
 
 .botija{
-  margin-top: -60px;
-    transform: scale(0.6);
+  margin-top: -80px;
+    transform: scale(0.5);
      width: calc(300px * 0.6);
   height: calc(450px * 0.6);
 }
 
 .displayDetail{
-  margin-top: -60px;
+  margin-top: -80px;
   padding: 20px;
   display: flex;
   flex-direction: row;
@@ -77,4 +94,57 @@ main {
   display: flex;
   flex-direction: column;
   margin-top: 10px;
+  gap: 5px;
+}
+
+
+.periodoDisplay{
+    margin-top: 30px;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.periodo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.pointer{
+    width: 10px;
+    height: 10px;
+    background-color: #2d509b;
+}
+
+/* .pointer.A{
+    background-color: #c48027;
+}
+.pointer.B{
+    background-color: #12405c;
+}
+.pointer.C{
+    background-color: #2ccf47;
+} */
+
+@media(min-width:800px){
+  .appLogo{
+        width: 120px;
+    }
+
+  .homeContainer{
+    padding-bottom: 80px;
+  }
+}
+
+@media(max-width:800px){
+  .appLogo{
+        width: 120px;
+    }
+
+  .homeContainer{
+    padding-bottom: 80px;
+  }
 }

@@ -13,12 +13,12 @@ export default function Footer({ isOpen, setIsOpen }) {
         </Link>
 
         <Link to="/dashboard" className={styles.link} onClick={closeSidebar}>
-          <i className="fa-solid fa-chart-simple"></i>
-          <label className={styles.title}>Dashboard</label>
+          <i className="fa-solid fa-fire-flame-curved"></i>
+          <label className={styles.title}>Consumo</label>
         </Link>
 
         <Link to="/dashgeral" className={styles.link} onClick={closeSidebar}>
-          <i className="fa-solid fa-chart-line"></i>
+          <i className="fa-solid fa-chart-simple"></i>
           <label className={styles.title}>info</label>
         </Link>
 
