@@ -114,11 +114,9 @@
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 18px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   text-decoration: none;
 }
 
@@ -133,12 +131,10 @@
   width: 100%;
   max-width: 400px;
   margin-bottom: 6px;
-
   font-family: "Inter", Arial, sans-serif; 
   font-size: 14px;     
   font-weight: 600;     
-  color: var(--text-light);     
-
+  color: #ffffff;      
   text-align: left;     
 }
 

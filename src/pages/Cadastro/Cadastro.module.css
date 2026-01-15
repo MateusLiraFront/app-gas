@@ -15,6 +15,85 @@
     color: var(--text-light);
 }
 
+.cadastroContainer{
+  min-height: 100vh;
+  background: var(--bg-initial);
+ /* background-size: 400% 400%;
+   animation: gradientShift 12s ease infinite; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cadastroBox{
+   width: 100vw;
+  min-width: 360px;
+  padding: 32px 24px;
+  color: #fff;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.logo {
+  width: 200px;        
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.titulo{
+  margin-bottom: 27px;
+}
+.formCadastro{
+ width: 100vw;
+  min-width: 360px;
+  padding: 32px 24px;
+  color: #fff;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 6px;
+  margin-left: 7px;
+  font-family: "Inter", Arial, sans-serif; 
+  font-size: 18px;     
+  font-weight:bold;     
+  color: #ffffff;      
+  text-align: left;     
+}
+input{
+  height: 60px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 14px;
+  border: none;
+  margin-bottom: 22px;
+  margin-top: 4px;
+  padding: 0 14px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.selectTipo {
+  width: 100%;
+  height: 48px;
+  max-width: 400px;
+  border-radius: 14px;
+  border: none;
+  margin-bottom: 22px;
+  margin-top: 4px;
+  padding: 0 14px;
+  font-size: 18px;
+  color: #3d3d3d;
+  font-weight: 500;
+}
 .link  {
   color: var(--text-light);
   font-weight: 600;
@@ -24,6 +103,28 @@
 .link:hover  {
   text-decoration: underline;
   color: var(--text-light-muted);
+}
+
+.btnCadastrar {
+  width: 100%;
+  max-width: 400px;  
+  height: 60px;
+  border-radius: 14px;
+  border: none;
+  background: #2b1fa8;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.btnCadastrar:hover {
+  background: #120d50;
 }
 
 
@@ -43,4 +144,39 @@
   width: 200px;
   max-width: 300px;
   border-radius: 10px;
+}
+
+.divisorLogin {
+  font-size: 14px; 
+  text-align: center;
+  margin-bottom: 2px;
+  margin-top: 20px;
+}
+
+.social_area {
+  display: flex;
+  gap: 24px;
+  margin-top: 0;
+  margin-bottom: 32px;
+}
+
+.socialBtn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+
+.socialBtn img {
+  height: 80px;   
+  width: auto;
+  transform: scale(1.9);
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+* {
+  font-family: "Inter", Arial, sans-serif;
 }
