@@ -3,69 +3,64 @@ import styles from "./Login.module.css";
 import { Link } from "react-router-dom";
 import logGoogle from "../../assets/Google.png";
 import logFacebook from "../../assets/Facebook.png";
+import logo from "../../assets/logo-header-light.png";
 
 export default function Login() {
-  const [open, setOpen] = useState(false);
-  const [tipo, setTipo] = useState("Tipo de conta ▾");
+  const [tipo, setTipo] = useState("");
 
   return (
     <div className={styles.loginContainer}>
       <div className={styles.loginBox}>
-        <h1>Login</h1>
-        <label className={styles.subtitle}>Login com:</label>
 
-        <div className={styles.socialArea}>
-          <button className={`${styles.socialBtn} ${styles.google}`}>
-            <img src={logGoogle} alt="Google" />
-          </button>
+      <img
+         src={logo}
+         alt="logo-header-light.png"
+         className={styles.logo}
+         /> 
+      
+        <div className={styles.formArea}>
 
-          <button className={`${styles.socialBtn} ${styles.facebook}`}>
-            <img src={logFacebook} alt="Facebook" />
-          </button>
-        </div>
-
-        {/* <p className={styles.subtitle}>Login com Email e Senha:</p> */}
-
-        
-        <div className={styles.inputGroup}>
-          <input
-            type="email"
-            placeholder="E-mail"
-            className={styles.input}
-          />
-
-          <div className={styles.dropdown}>
-            <button
-              className={styles.dropbtn}
-              onClick={() => setOpen(!open)}
-            >
-              {tipo}
-            </button>
-
-            {open && (
-              <div className={styles.dropdownContent}>
-                <p onClick={() => { setTipo("Visitante ▾"); setOpen(false); }}>
-                  Visitante
-                </p>
-                <p onClick={() => { setTipo("Usuário Comum ▾"); setOpen(false); }}>
-                  Usuário Comum
-                </p>
-                <p onClick={() => { setTipo("Gestor de Cliente ▾"); setOpen(false); }}>
-                  Gestor de Cliente
-                </p>
-              </div>
-            )}
-          </div>
-        </div>
-
+        <label htmlFor="email" className={styles.label}>
+          E-mail
+        </label>
         <input
-          type="password"
-          placeholder="Senha"
+          id="email"
+          type="email"
+          placeholder="E-mail"
           className={styles.input}
         />
 
+        <label htmlFor="tipo" className={styles.label}>
+          Tipo de conta
+        </label>
+        <select
+          id="tipo"
+          className={styles.selectTipo}
+          value={tipo}
+          onChange={(e) => setTipo(e.target.value)}
+        >
+          <option value="" disabled>
+            Usuário Comum
+          </option>
+          <option value="Usuário Comum">Usuário Comum</option>
+          <option value="Gestor de Cliente">Gestor de Cliente</option>
+        </select>
+
+        <label htmlFor="senha" className={styles.label}>
+          Senha
+        </label>
+        <input
+          id="senha"
+          type="password"
+          placeholder="Senha"
+          className={styles.inputSenha}
+        />
+
+        </div>
+
         <Link className={styles.forgot} to="/suporte">
-          Esqueceu Email ou Senha?
+          Esqueceu sua Senha?{" "}
+          <span className={styles.linkText}>Recupere aqui</span>
         </Link>
 
         <Link className={styles.btnLogin} to="/home">
@@ -73,11 +68,32 @@ export default function Login() {
         </Link>
 
         <p className={styles.footerText}>
-          Não possui uma conta?
-          <Link to="/cadastro"> Clique aqui</Link>
+        Não possui uma conta?
+          <Link to="/cadastro" className={styles.linkText}>  
+          Clique aqui
+          </Link>
         </p>
+
+        <div className={styles.divisorLogin}>
+          ou faça Login com:
+        </div>
+
+        <div className={styles.social_area}>
+          <button className={styles.socialBtn}>
+            <img src={logGoogle} alt="Google" />
+          </button>
+
+          <button className={styles.socialBtn}>
+            <img src={logFacebook} alt="Facebook" />
+          </button>
+        </div>
+
       </div>
     </div>
+
+    
   );
 }
+
+
 

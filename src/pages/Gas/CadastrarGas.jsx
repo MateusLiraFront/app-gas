@@ -1,23 +1,23 @@
-import styles from "./Perfil.module.css";
+import React, { useState } from "react";
+import styles from "./CadastrarGas.module.css";
+import { Link } from "react-router-dom";
 
-export default function Perfil() {
+export default function CadastrarGas() {
   return (
     <div className={`absolute inset-0 ${styles.defaultContainer}`}>
       <div className={styles.topDisplay}>
         <i className={`fa-solid fa-angle-left ${styles.arrow}`} />
-        <h3>Perfil do Usuário</h3>
+        <h3>Novo Gás</h3>
       </div>
 
       <div className={styles.cardDisplay}>
         <div className={styles.header}>
-          <h1 className={styles.title}>Antônio Cardoso</h1>
+          <h1 className={styles.title}>Cadastro de novo Botijão</h1>
         </div>
         <div className={styles.cadastroContainer}>
-          <label className={styles.title2}><strong>Informações da Conta</strong></label>
-
           <div className={styles.formGroup}>
-            <label>Nome</label>
-            <input type="text" placeholder="Antônio Cardoso de Melo" />
+            <label>Nome do Botijão</label>
+            <input type="text" placeholder="Ex. Área do Churrasco" />
           </div>
 
           <div className={styles.formGroup}>
@@ -26,16 +26,18 @@ export default function Perfil() {
           </div>
 
           <div className={styles.formGroup}>
-            <label>E-mail</label>
-            <input type="text" placeholder="antocmelo@gmail.com" />
+            <label>Data da Instalação</label>
+            <div className={styles.inputIcon}>
+              <input type="date" />
+            </div>
           </div>
 
           <div className={styles.formGroup}>
-            <label>Senha</label>
-            <input type="password" placeholder="************" />
+            <label>Peso do botijão</label>
+            <input type="text" placeholder="Ex: 13kg" />
           </div>
 
-          <button className={styles.btnAdicionar}>Editar</button>
+          <button className={styles.btnAdicionar}>Adicionar</button>
         </div>
       </div>
     </div>

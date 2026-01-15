@@ -11,7 +11,7 @@ header {
   border-bottom: 4px solid rgb(30, 50, 116) !important; 
 }
 
-.display-welcome{
+.displayWelcome{
   padding: 10px 60px;
   display: flex;
   flex-direction: row;
@@ -25,7 +25,7 @@ header {
   max-height: 60px;
 }
 
-.display-logo{
+.displayLogo{
   max-width: 40px;
 }
 .navigation{
@@ -33,6 +33,11 @@ header {
   display: flex;
   gap: 50px;
   justify-content: space-between;
+}
+
+.link{
+  text-decoration: none;
+  color: aliceblue;
 }
 
 @media (max-width:800px){

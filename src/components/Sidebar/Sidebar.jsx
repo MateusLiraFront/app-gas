@@ -1,30 +1,49 @@
-import "./Sidebar.css";
+import styles from "./Sidebar.module.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
-export default function Sidebar() {
-  const [isOpen, setIsOpen] = useState(true);
-
+export default function Sidebar({ isOpen, setIsOpen }) {
+  const closeSidebar = () => setIsOpen(false);
   return (
-    <div className={`sidebar-display ${isOpen ? "open" : "closed"}`}>
-      <div className="sidebar-display">
-        <div className="itens-display">
-          
-          <i
-            className={`fa-solid ${
-              isOpen ? "fa-circle-right icon-arrow open" : "fa-circle-left icon-arrow closed"
-            }`}
-            style={{ color: "#e0ad07ff" }}
-            onClick={() => setIsOpen(!isOpen)}
-          ></i>
+    <div
+      className={`${styles.sidebarDisplay} ${
+        isOpen ? styles.open : styles.closed
+      }`}
+    >
+      <div className={styles.sidebarInner}>
+        <div className={styles.itensDisplay}>
+          <Link to="#" className={`${styles.link} ${styles.item}`}>
+            Modo Noturno
+          </Link>
 
-          <Link to="/perfil" className="link item um">
-            <i className="" />
+          <Link
+            to="/perfil"
+            className={`${styles.link} ${styles.item}`}
+            onClick={closeSidebar}
+          >
             Perfil
           </Link>
 
-          <Link to="/login" className="link item">
-            <i className="" />
+          <Link
+            to="/cadastrar-gas"
+            className={`${styles.link} ${styles.item}`}
+            onClick={closeSidebar}
+          >
+            Cadastrar Gás
+          </Link>
+
+          <Link
+            to="/editar-gas"
+            className={`${styles.link} ${styles.item}`}
+            onClick={closeSidebar}
+          >
+            Editar Gás
+          </Link>
+
+          <Link
+            to="/login"
+            className={`${styles.link} ${styles.item}`}
+            onClick={closeSidebar}
+          >
             Sair
           </Link>
         </div>

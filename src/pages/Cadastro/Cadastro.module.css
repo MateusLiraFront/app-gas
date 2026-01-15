@@ -1,9 +1,9 @@
-.app-logo{
+.appLogo{
     max-width: 300px;
 }
 
 
-.default-container{
+.defaultContainer{
     background: var(--bg-initial);
     min-height: 100vh;
     min-width: 100vw;
@@ -27,7 +27,7 @@
 }
 
 
-.button-action{
+.buttonAction{
   background-color: rgb(36, 26, 185);
   color: var(--text-secondary);
   padding: 10px;
@@ -36,7 +36,7 @@
   border-radius: 10px;
 }
 
-.button-action:hover{
+.buttonAction:hover{
   background-color: rgb(25, 17, 136);
   color: var(--text-secondary);
   padding: 10px;

@@ -26,12 +26,10 @@ export default function Suporte() {
         <div className={styles.socialArea}>
           <button className={styles.socialBtn}>
             <img src={logGoogle} alt="Google" />
-            
           </button>
 
           <button className={styles.socialBtn}>
             <img src={logFacebook} alt="Facebook" />
-            
           </button>
         </div>
       </div>

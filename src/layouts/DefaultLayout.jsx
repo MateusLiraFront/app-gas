@@ -1,28 +1,37 @@
 import { Outlet } from "react-router-dom";
+import { useState } from "react";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import Sidebar from "../components/Sidebar/Sidebar";
-import "./DefaultLayout.css";
+import styles from "./DefaultLayout.module.css";
+
 
 export default function DefaultLayout() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="default-layout ">
-      <div className="header">
+    <div className={styles.defaultLayout}>
+      <div className={styles.header}>
         <Header />
       </div>
 
-      <div className="sidebar">
-        <Sidebar />
+      {isOpen && (
+        <div className={styles.backdrop} onClick={() => setIsOpen(false)} />
+      )}
+
+      <div className={styles.sidebar}>
+        <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
 
-      <main className="display-principal">
-        <div className="">
+      <main className={styles.displayPrincipal}>
+        <div>
+       
           <Outlet />
         </div>
       </main>
-      
-      <div className="footer">
-        <Footer />
+
+      <div className={styles.footer}>
+        <Footer isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </div>
   );

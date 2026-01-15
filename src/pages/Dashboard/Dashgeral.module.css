@@ -1,0 +1,130 @@
+.dashboardContainer {
+  max-width: 80vw;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-bottom: 80px;
+}
+
+.appLogo{
+    margin-bottom: 20px;
+}
+
+.topDisplay{
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.general{
+    background-color: rgb(16, 7, 97);
+    color: aliceblue;
+    padding: 6px 20px;
+    border-radius: 15px;
+}
+
+.cardDisplay{
+    width: 80vw;
+    background-color: #daecf7;
+    color: #2f2849;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0 20px;
+    margin-top: 30px;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 14px;
+}
+.nav {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 90%;
+  padding: 6px;
+  background-color: #daecf7;
+  border-radius: 30px;
+}
+
+.navItem {
+  flex: 1;
+  height: 34px;
+
+  border: none;
+  background: transparent;
+  border-radius: 30px;
+
+  font-size: 14px;
+  font-weight: 500;
+  color: #0a1d29;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.navItem:hover {
+  background-color: rgba(10, 29, 41, 0.123);
+}
+
+.active {
+  background-color: #0a1d29;
+  color: #daecf7;
+}
+.active:hover {
+  background-color: #0a1d29;
+  color: #daecf7;
+}
+
+
+.gasName{
+    font-size: 22px;
+}
+.arrow{
+    /* font-size: 30px;
+    color: #98add3; */
+    cursor: pointer;
+}
+
+.grafico{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    height: 300px;
+    background-color: aliceblue;
+    border-radius: 15px;
+}
+
+@media(min-width:800px){
+  .appLogo{
+        width: 120px;
+    }
+    .title{
+        font-size: 30px;
+    } 
+}
+
+@media(max-width:800px){
+  .appLogo{
+        width: 120px;
+    }
+    .title{
+        font-size: 24px;
+    } 
+    .subtitle{
+        font-size: 14px
+    }
+    label{
+        font-size: 18px;
+    }
+}

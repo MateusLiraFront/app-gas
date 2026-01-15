@@ -74,8 +74,6 @@
 }
 
 .socialBtn {
-  height: 42px;
-  padding: 0 18px;
   flex: 1;
   height: 44px;
   background: none;
@@ -85,13 +83,11 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-size: 14px;
-  font-weight: 600;
   cursor: pointer;
 }
 
 .socialBtn img {
-  height: 80px;   
-  width: auto;
+  height: 80px;
+   width: auto;
   transform: scale(1.9);
 }

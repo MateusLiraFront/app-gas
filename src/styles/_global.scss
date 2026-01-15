@@ -7,7 +7,7 @@ $text-secondary: #e5e7eb;
 $text-secondary-muted:#9ca3af;
 
 $bg-initial: #28C0F7, #4DACF9, #5A80FC, #765EFC, #997DFF;
-$bg-app: rgb(218, 242, 243);
+$bg-app: #7C5DED, #664FEA, #627BE0;
 
 $button-alert: rgb(240, 240, 9);
 $button-danger: rgb(189, 64, 26);
@@ -24,7 +24,7 @@ $button-sucess: rgb(22, 168, 59);
   --font-family: "Inter", sans-serif;
 
   --bg-initial: linear-gradient(45deg, #{$bg-initial});
-  --bg-app: #{$bg-app};
+  --bg-app: linear-gradient(45deg, #{$bg-app}) ;
 
   --btn-alert: #{$button-alert};
   --btn-danger: #{$button-danger};
