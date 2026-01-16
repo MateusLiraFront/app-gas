@@ -18,17 +18,10 @@
     gap: 8px;
 }
 
-.general{
-    background-color: rgb(16, 7, 97);
-    color: aliceblue;
-    padding: 6px 20px;
-    border-radius: 15px;
-}
-
 .cardDisplay{
     width: 80vw;
-    background-color: #daecf7;
-    color: #2f2849;
+    background-color: var(--bg-display-dark);
+    color: var(--text-dark);
     border-radius: 18px;
     display: flex;
     flex-direction: column;
@@ -62,7 +55,7 @@
   width: 90%;
   max-width: 380px;
   padding: 18px 30px;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--bg-display);
   border-radius: 15px;
 }
 
@@ -77,7 +70,7 @@
 .formGroup label {
   font-size: 14px;
   font-weight: 600;
-  color: #2c2c2c;
+  color: var(--text-dark);
   margin-bottom: 4px;
 }
 
@@ -87,14 +80,14 @@
   padding: 0 12px;
 
   border-radius: 10px;
-  border: 1px solid #d9dae6;
+  border: 1px solid var(--text-light-muted);
 
   font-size: 14px;
   outline: none;
 }
 
 .formGroup input:focus {
-  border-color: #4c5fd5;
+  border-color: var(--text-light-muted);
 }
 
 .inputIcon {
@@ -122,8 +115,8 @@
   border-radius: 12px;
   border: none;
 
-  background-color: #4c5fd5;
-  color: #fff;
+  background-color: var(--btn-interact);
+  color: var(--text-light);
 
   font-size: 15px;
   font-weight: 600;

@@ -6,7 +6,7 @@ import logFacebook from "../../assets/Facebook.png";
 
 export default function Suporte() {
   return (
-    <div className={styles.loginContainer}>
+  <div className={styles.loginContainer}>
       <div className={styles.loginBox}>
         <h1 className={styles.title}>Recuperar Senha</h1>
         <p className={styles.subtitle}>Digite o e-mail cadastrado</p>

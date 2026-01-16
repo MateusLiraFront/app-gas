@@ -16,21 +16,21 @@ footer {
   left: 0 !important;
   width: 100% !important;
   height: 80px !important;
-  background-color: #2D2899 !important;
+  background-color: var(--bg-footer);
   z-index: 1000 !important;
   box-shadow: 0 -2px 4px rgba(0,0,0,0.1) !important;
 }
 
 button{
-  color: aliceblue;
-  background-color: #2D2899;
+  color: var(--text-light);
+  background-color: var(--bg-footer);
   border: 0;
   cursor: pointer;
 }
 
 .link{
   text-decoration: none;
-  color: aliceblue;
+  color: var(--text-light);
   display: flex;
   flex-direction: column;
   justify-content: center;
