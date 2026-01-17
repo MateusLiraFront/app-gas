@@ -40,6 +40,14 @@ export default function Sidebar({ isOpen, setIsOpen }) {
           </Link>
 
           <Link
+            to="/endereco"
+            className={`${styles.link} ${styles.item}`}
+            onClick={closeSidebar}
+          >
+            Endereco
+          </Link>
+
+          <Link
             to="/login"
             className={`${styles.link} ${styles.item}`}
             onClick={closeSidebar}
