@@ -5,7 +5,7 @@
   right: 0;
   width: 200px;
   height: 100%;
-  background-color: #1d2749;
+  background-color: var(--bg-sidebar);
   z-index: 1010;
   transition: transform 0.3s ease-in-out;
 }
@@ -32,43 +32,13 @@
 .item{
     width: 100%;
     padding: 10px;
-    color: aliceblue;
+    color: var(--text-light)
 }
 
 .item:hover{
     width: 100%;
     background-color: rgb(18, 15, 37);
     padding: 10px;
-}
-
-/* .toggle{
-    background-color: aliceblue;
-
-    width: 30px;
-    max-width: 100%;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
-.iconArrow{
-    border: #1d2749 solid 10px;
-    background-color:#1d2749;
-    border-radius: 50%;
-    width: 55px;
-    padding: 0px;
-    font-size: 35px;
-    position: fixed;
-    margin-top: 220px;
-    margin-left: -20px;
-    cursor: pointer;
-}
-
-.iconArrow.closed {
-    margin-left: -30px;
-  .toggle{
-    background-color: #1d2749;
-  }
 }
 
 @media (min-width:800px){

@@ -5,11 +5,6 @@
   font-family: Arial, sans-serif;
 }
 
-.test {
-  color: red !important;
-  font-size: 40px;
-}
-
 .loginContainer {
   min-height: 100vh;
   background: var(--bg-initial);
@@ -30,10 +25,10 @@
   width: 100vw;
   min-width: 360px;
   padding: 32px 24px;
-  color: #fff;
-  text-align: center;
+  color: var(--text-light);
+  text-align: left;
   display: flex;
-    flex-direction: column;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -50,9 +45,9 @@
 
 .social_area {
   display: flex;
-  justify-content: center;
   gap: 24px;
-  margin-bottom: 26px;
+  margin-top: 0;
+  margin-bottom: 32px;
 }
 
 .socialBtn {
@@ -69,7 +64,7 @@
   transform: scale(1.9);
 }
 
-/* INPUTS */
+
 .loginBox input {
   width: 100%;
   max-width: 400px;
@@ -77,59 +72,129 @@
   border-radius: 14px;
   border: none;
   padding: 0 14px;
-  margin-bottom: 12px;
-  background: #ffffff;
-  color: #000000;
+  margin-bottom: 22px;
+  background: var(--text-light);
+  color: var(--text-dark);
 }
 
 .loginBox input::placeholder {
   color: #777;
 }
 
-/* ESQUECI */
+.selectTipo {
+  width: 100%;
+  height: 48px;
+  max-width: 400px;
+  border-radius: 14px;
+  border: none;
+  margin-bottom: 22px;
+  padding: 0 14px;
+   
+}
+
 .forgot {
   display: block;
   /* align-self: flex-end; */
   text-align: right;
   font-size: 12px;
-  color: #fff;
+  color: var(--text-light);
   margin: 8px 0 20px;
   text-decoration: none;
 }
 
-/* BOTÃO LOGIN */
+
 .btnLogin {
-  min-width: 390px;
-  max-width: 390px;
-  height: 48px;   /* REFERÊNCIA DE TAMANHO */
+  width: 100%;
+  max-width: 400px;  
+  height: 48px;
   border-radius: 14px;
   border: none;
-  background: #2b1fa8;
-  color: #fff;
+  background: var(--btn-interact);
+  color: var(--text-light);
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 18px;
-  text-align: center;
   display: flex;
-  align-items: center;      
-  justify-content: center; 
-  text-decoration: none; 
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
 
-.btnLogin:hover {
-  min-width: 390px;
-  max-width: 390px;
-  height: 48px;   
-  border-radius: 14px;
-  border: none;
-  background: #120d50;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 18px;
-}
 
 .footerText {
   font-size: 12px;
 }
+
+
+
+.label {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 6px;
+  font-family: "Inter", Arial, sans-serif; 
+  font-size: 14px;     
+  font-weight: 600;     
+  color: #ffffff;      
+  text-align: left;     
+}
+
+
+
+
+.linkText {
+  color: var(--text-light);   
+  text-decoration: underline;       
+  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.linkText:hover {
+  color: #9aa0ff;
+ 
+}
+
+.footerText {
+  font-size: 12px;
+  margin-top: 16px;
+  margin-bottom: 32px; 
+  text-align: center;
+}
+
+.divisorLogin {
+  font-size: 14px; 
+  text-align: center;
+  margin-bottom: 2px;
+}
+
+.btnLogin:hover {
+  background: #120d50;
+}
+
+.logo {
+  width: 180px;        
+  max-width: 100%;
+  margin-bottom: 40px;
+}
+
+.formArea {
+  width: 100%;
+  max-width: 400px;   
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+* {
+  font-family: "Inter", Arial, sans-serif;
+}
+
+
+
+
+
+
+
 
