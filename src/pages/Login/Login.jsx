@@ -39,6 +39,7 @@ export default function Login() {
           value={tipo}
           onChange={(e) => setTipo(e.target.value)}
         >
+          
           <option value="Usuário Comum">Usuário Comum</option>
           <option value="Gestor de Cliente">Gestor de Cliente</option>
         </select>
