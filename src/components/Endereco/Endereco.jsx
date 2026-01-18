@@ -1,6 +1,13 @@
 import styles from "./Endereco.module.css";
+import { useState } from "react";
 
 export default function Endereco() {
+  const [isEditing, setIsEditing] = useState(false);
+
+  if (isEditing) {
+    return <EditarEndereco onBack={() => setIsEditing(false)} />;
+  }
+
   return (
     <div className={`absolute inset-0 ${styles.defaultContainer}`}>
       <div className={styles.topDisplay}>
@@ -12,14 +19,92 @@ export default function Endereco() {
         <div className={styles.header}>
           <h1 className={styles.title}>Selecione Local</h1>
         </div>
-        <div className={styles.containerEndereco}>
-          <strong> Rua x</strong>
-          <i
-            className="fa-solid fa-pen-to-square"
-            style={{ color: "#235dc2" }}
-          ></i>
+
+        <ListEndereco onEdit={() => setIsEditing(true)} />
+
+        <button className={styles.btn} onClick={() => setIsEditing(true)}>
+          Novo
+        </button>
+
+        <button
+          className={styles.btn}
+          onClick={() => setIsEditing(true)}
+          style={{ background: "var(--btn-negative)" }}
+        >
+          Excluir
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export function ListEndereco({ onEdit }) {
+  return (
+    <div className={styles.containerEndereco}>
+      <strong> Rua dos programadores</strong>
+      <i
+        className="fa-solid fa-pen-to-square"
+        style={{ color: "var(--btn-interact)" }}
+        onClick={onEdit}
+      ></i>
+    </div>
+  );
+}
+
+export function EditarEndereco({ onBack }) {
+  const [form, setForm] = useState({
+    rua: "",
+    numero: "",
+    bairro: "",
+    cidade: "",
+    estado: "",
+  });
+
+  return (
+    <div className={`absolute inset-0 ${styles.defaultContainer}`}>
+      <div className={styles.topDisplay} onClick={onBack}>
+        <i
+          className={`fa-solid fa-angle-left ${styles.arrow}`}
+          style={{ cursor: "pointer" }}
+        />
+        <h3>Voltar</h3>
+      </div>
+
+      <div className={styles.cardDisplay}>
+        <div className={styles.header}>
+          <h1 className={styles.title}>Informações do Endereço</h1>
         </div>
-        <button className={styles.btnAdicionar}>Editar</button>
+        <form className={styles.cadastroContainer}>
+          <div className={styles.formGroup}>
+            <label>Rua</label>
+            <input type="text" name="rua" value={form.rua} required />
+          </div>
+
+          <div className={styles.formGroup}>
+            <label>Número</label>
+            <input type="text" name="numero" value={form.numero} required />
+          </div>
+
+          <div className={styles.formGroup}>
+            <label>Bairro</label>
+            <input type="text" name="bairro" value={form.bairro} required />
+          </div>
+
+          <div className={styles.formGroup}>
+            <label>Cidade</label>
+            <input type="text" name="cidade" value={form.cidade} required />
+          </div>
+
+          <div className={styles.formGroup}>
+            <label>Estado</label>
+            <input type="text" name="estado" value={form.estado} required />
+          </div>
+
+          <button className={styles.btnAdicionar} type="submit">
+            {" "}
+            Salvar
+          </button>
+        </form>
       </div>
     </div>
   );
