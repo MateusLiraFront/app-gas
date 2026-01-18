@@ -60,6 +60,11 @@ export function EditarEndereco({ onBack }) {
     estado: "",
   });
 
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  } 
+
   return (
     <div className={`absolute inset-0 ${styles.defaultContainer}`}>
       <div className={styles.topDisplay} onClick={onBack}>
@@ -77,30 +82,60 @@ export function EditarEndereco({ onBack }) {
         <form className={styles.cadastroContainer}>
           <div className={styles.formGroup}>
             <label>Rua</label>
-            <input type="text" name="rua" value={form.rua} required />
+            <input
+              type="text"
+              name="rua"
+              value={form.rua}
+              onChange={handleChange}
+              required
+            />
           </div>
 
           <div className={styles.formGroup}>
             <label>Número</label>
-            <input type="text" name="numero" value={form.numero} required />
+            <input
+              type="text"
+              name="numero"
+              value={form.numero}
+              onChange={handleChange}
+              required
+            />
           </div>
 
           <div className={styles.formGroup}>
             <label>Bairro</label>
-            <input type="text" name="bairro" value={form.bairro} required />
+            <input
+              type="text"
+              name="bairro"
+              value={form.bairro}
+              onChange={handleChange}
+              required
+            />
           </div>
 
           <div className={styles.formGroup}>
             <label>Cidade</label>
-            <input type="text" name="cidade" value={form.cidade} required />
+            <input
+              type="text"
+              name="cidade"
+              value={form.cidade}
+              onChange={handleChange}
+              required
+            />
           </div>
 
           <div className={styles.formGroup}>
             <label>Estado</label>
-            <input type="text" name="estado" value={form.estado} required />
+            <input
+              type="text"
+              name="estado"
+              value={form.estado}
+              onChange={handleChange}
+              required
+            />
           </div>
 
-          <button className={styles.btnAdicionar} type="submit">
+          <button className={styles.btn} type="submit">
             {" "}
             Salvar
           </button>

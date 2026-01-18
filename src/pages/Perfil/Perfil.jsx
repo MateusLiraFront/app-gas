@@ -61,6 +61,11 @@ function EditarPerfil({ onBack }) {
     senha: "",
   });
 
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  }
+
   return (
     <div className={`absolute inset-0 ${styles.defaultContainer}`}>
       <div className={styles.topDisplay} onClick={onBack}>
@@ -83,6 +88,7 @@ function EditarPerfil({ onBack }) {
               type="text"
               name="nome"
               value={form.nome}
+              onChange={handleChange}
               required
             />
           </div>
@@ -93,6 +99,7 @@ function EditarPerfil({ onBack }) {
               type="text"
               name="endereco"
               value={form.endereco}
+              onChange={handleChange}
               required
             />
           </div>
@@ -103,6 +110,7 @@ function EditarPerfil({ onBack }) {
               type="email"
               name="email"
               value={form.email}
+              onChange={handleChange}
               required
             />
           </div>
@@ -113,6 +121,7 @@ function EditarPerfil({ onBack }) {
               type="password"
               name="senha"
               value={form.senha}
+              onChange={handleChange}
               required
             />
           </div>
