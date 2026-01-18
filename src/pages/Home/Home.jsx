@@ -4,6 +4,13 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo-header-light.png";
 
 export default function Home() {
+const DataInstalacao = new Date("2026-01-08");
+  const Termino = new Date("2026-03-22");
+  const PrevisaoDuracao = Math.ceil(
+  (Termino - DataInstalacao) / (1000 * 60 * 60 * 24)
+     );
+  
+
   return (
     <div className={styles.homeContainer}>
       <div className={styles.topDisplay}>
@@ -25,7 +32,7 @@ export default function Home() {
           <div className={styles.botijao}>
             <div className={styles.sombraBg}></div>
             <div className={styles.SombraBot}></div>
-            <Percent percent={55} className={styles.botija} />
+            <Percent percent={50} className={styles.botija} />
           </div>
           <div className={styles.displayDetail}>
             <div className={styles}>
@@ -33,7 +40,7 @@ export default function Home() {
                 <strong>STATUS: </strong>
               </label>
               <label>
-                <strong>
+                <strong >
                   <Status />
                 </strong>
               </label>
@@ -47,15 +54,15 @@ export default function Home() {
         <div className={styles.detalhes}>
           <div className={styles.periodo}>
             <div className={`${styles.pointer} ${styles.A}`}></div>
-            <label>Data de Instalação:</label>
+            <label>  Data de Instalação: {DataInstalacao.toLocaleDateString()}</label>
           </div>
           <div className={styles.periodo}>
             <div className={`${styles.pointer} ${styles.B}`}></div>
-            <label>Término em: </label>
+            <label>  Término em: {Termino.toLocaleDateString()} </label>
           </div>
           <div className={styles.periodo}>
             <div className={`${styles.pointer} ${styles.C}`}></div>
-            <label>Previsão Duração:</label>
+            <label> Previsão Duração: {PrevisaoDuracao} dias</label>
           </div>
         </div>
       </div>
