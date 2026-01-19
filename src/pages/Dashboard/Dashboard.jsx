@@ -13,24 +13,6 @@ export default function Dashboard() {
 
   return (
     <div className={styles.container}>
-      <header className={styles.header}>
-        <div className={styles.navContent}>
-          <div className={styles.logoArea}>
-            <img src={logo} alt="AlertaGás" className={styles.logo} />
-            <span className={styles.brandName}>AlertaGás</span>
-          </div>
-          
-          <nav className={styles.centerNav}>
-            <Link to="/home">Início</Link>
-            <Link to="/dashboard" className={styles.activeLink}>Dashboard</Link>
-            <Link to="/perfil">Perfil</Link>
-          </nav>
-
-          <div className={styles.rightArea}>
-            <Link to="/login" className={styles.exitLink}>Sair</Link>
-          </div>
-        </div>
-      </header>
 
       <main className={styles.mainContent}>
         <div className={styles.selector}>
@@ -86,13 +68,6 @@ export default function Dashboard() {
           </div>
         </div>
       </main>
-
-      <nav className={styles.bottomNavMobile}>
-        <Link to="/home"><i className="fa-solid fa-house"></i></Link>
-        <Link to="/cadastrar-gas"><i className="fa-solid fa-cart-shopping"></i></Link>
-        <Link to="/dashboard" className={styles.active}><i className="fa-solid fa-chart-simple"></i></Link>
-        <Link to="/perfil"><i className="fa-solid fa-gear"></i></Link>
-      </nav>
     </div>
   );
 }

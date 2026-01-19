@@ -1,64 +1,11 @@
 .container {
   min-height: 100vh;
-  background: linear-gradient(180deg, #5c4ee5 0%, #1a1464 100%);
-  color: white;
+  background: var(--bg-app);
+  color: var(--text-light);
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-bottom: 100px;
-}
-
-.header {
-  width: 100%;
-  background-color: #1d408f;
-  padding: 15px 0;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
-}
-
-.navContent {
-  width: 90%;
-  max-width: 1200px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logoArea {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo {
-  width: 40px;
-  height: auto;
-}
-
-.brandName {
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.centerNav {
-  display: flex;
-  gap: 40px;
-}
-
-.centerNav a {
-  color: white;
-  text-decoration: none;
-}
-
-.activeLink {
-  font-weight: bold;
-  border-bottom: 2px solid white;
-}
-
-.exitLink {
-  color: white;
-  text-decoration: none;
 }
 
 .mainContent {
@@ -110,7 +57,7 @@
   justify-content: space-between;
   font-size: 12px;
   padding-right: 15px;
-  color: #ccc;
+  color: var(--text-light);
   text-align: right;
   min-width: 40px;
 }
@@ -129,11 +76,11 @@
 }
 
 .barBlue {
-  background: linear-gradient(180deg, #101630 0%, #1d2749 100%);
+  background: var(--graficBar1);
 }
 
 .barGreen {
-  background: linear-gradient(180deg, #6dae81 0%, #4a8a5f 100%);
+  background: var(--graficBar2);
 }
 
 .barLabel {
@@ -149,9 +96,9 @@
 }
 
 .badgeMensal {
-  background: #3b2fb3;
+  background: var(--btn-interact);
   border: none;
-  color: white;
+  color: var(--text-light);
   padding: 5px 15px;
   border-radius: 8px;
 }
@@ -179,8 +126,8 @@
   border-radius: 3px;
 }
 
-.dotDarkBlue { background-color: #101630; }
-.dotLightGreen { background-color: #6dae81; }
+.dotDarkBlue { background-color: var(--graficBar1); }
+.dotLightGreen { background-color: var(--graficBar2); }
 .dotGold { background-color: #b38b2f; }
 
 .bottomNavMobile {
@@ -188,34 +135,8 @@
 }
 
 @media (max-width: 768px) {
-  .header {
-    display: none;
-  }
-
   .mainContent {
     margin-top: 40px;
-  }
-  
-  .bottomNavMobile {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #1a1464;
-    display: flex;
-    justify-content: space-around;
-    padding: 20px 0;
-    z-index: 100;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  .bottomNavMobile a {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 20px;
-  }
-  
-  .bottomNavMobile a.active {
-    color: white;
   }
 }
 

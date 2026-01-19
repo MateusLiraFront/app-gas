@@ -8,7 +8,7 @@ header {
   background-color: rgb(32, 74, 151) !important;
   z-index: 1001 !important;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
-  border-bottom: 4px solid rgb(30, 50, 116) !important; 
+  border-bottom: 4px solid var(--text-dark-muted) !important; 
 }
 
 .displayWelcome{
@@ -37,7 +37,7 @@ header {
 
 .link{
   text-decoration: none;
-  color: aliceblue;
+  color: var(--text-light);
 }
 
 @media (max-width:800px){

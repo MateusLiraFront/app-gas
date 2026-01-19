@@ -30,6 +30,8 @@ export default function Login() {
           className={styles.input}
         />
 
+        
+
         <label htmlFor="tipo" className={styles.label}>
           Tipo de conta
         </label>
@@ -39,8 +41,7 @@ export default function Login() {
           value={tipo}
           onChange={(e) => setTipo(e.target.value)}
         >
-          <option value="Usuário Comum" disabled>
-          </option>
+          
           <option value="Usuário Comum">Usuário Comum</option>
           <option value="Gestor de Cliente">Gestor de Cliente</option>
         </select>
