@@ -9,6 +9,9 @@ import Suporte from "./pages/Suporte/Suporte";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Dashgeral from "./pages/Dashboard/Dashgeral";
 import Perfil from "./pages/Perfil/Perfil";
+import CadastrarGas from "./pages/Gas/CadastrarGas";
+import EditarGas from "./pages/Gas/EditarGas";
+import Endereco from "./components/Endereco/Endereco";
 import './styles/index.scss';
 
 function App() {
@@ -27,6 +30,9 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashgeral" element={<Dashgeral />} />
           <Route path="/perfil" element={<Perfil />} />
+          <Route path="/cadastrar-gas" element={<CadastrarGas />} />
+          <Route path="/editar-gas" element={<EditarGas />} />
+          <Route path="/endereco" element={<Endereco/>} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,32 +1,80 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 
-$text-primary: #0f172a;
-$text-primary-muted: #223658;
-$text-secondary: #e5e7eb;
-$text-secondary-muted:#9ca3af;
+$text-dark: #1f252c;
+$text-dark-muted: #2f353d;
+$text-light: #FFFFFF;
+$text-light-muted:#9ca3af;
 
-$bg-initial: #28C0F7, #4DACF9, #5A80FC, #765EFC, #997DFF;
-$bg-app: rgb(218, 242, 243);
+$background-initial: #28C0F7, #4DACF9, #5A80FC, #765EFC, #997DFF;
+$background-app: #627BE0, #664FEA, #7C5DED;
+$background-footer: #2D2899;
+$background-header: #2D2899;
+$background-sidebar: #3E39BE;
 
-$button-alert: rgb(240, 240, 9);
-$button-danger: rgb(189, 64, 26);
-$button-sucess: rgb(22, 168, 59);
+$background-display: #f7f7f7;
+$background-display-dark: #d5cff8;
 
+$background-shadow: #D3CAFF;
+$background-shadow-bot: #8D78FF;
+
+$button-interact: #291B99;
+$button-negative: #992828;
+
+$color-alert: #F9BA01;
+$color-danger: #E00030;
+$color-great: #13b451;
+
+// Cores para gráfico:
+$graphic-color1: #0f285e;
+$graphic-color2: #64A886;
+// (incluir mais cores para gráfico e ajustar as existentes)...
 
 :root {
 
-  --text-primary: #{$text-primary};
-  --text-primary-muted: #{$text-primary-muted};
-  --text-secondary: #{$text-secondary};
-  --text-secondary-muted: #{$text-secondary-muted};
+  --text-dark: #{$text-dark};
+  --text-dark-muted: #{$text-dark-muted};
+  --text-light: #{$text-light};
+  --text-light-muted: #{$text-light-muted};
 
   --font-family: "Inter", sans-serif;
 
-  --bg-initial: linear-gradient(45deg, #{$bg-initial});
-  --bg-app: #{$bg-app};
+  --bg-initial: linear-gradient(45deg, #{$background-initial});
+  --bg-app: linear-gradient(45deg, #{$background-app}) ;
+  --bg-footer: #{$background-footer};
+  --bg-header: #{$background-header};
+  --bg-sidebar:  #{$background-sidebar};
 
-  --btn-alert: #{$button-alert};
-  --btn-danger: #{$button-danger};
-  --btn-sucess: #{$button-sucess};
+  --bg-display: #{$background-display};
+  --bg-display-dark: #{$background-display-dark};
+
+  --bg-shadow:  #{$background-shadow};
+  --bg-shadow-bot:  #{$background-shadow-bot};
+
+  --btn-interact: #{$button-interact};
+  --btn-negative: #{$button-negative};
+
+  --color-alert: #{$color-alert};
+  --color-danger: #{$color-danger};
+  --color-great: #{$color-great};
+
+  --graficBar1:#{$graphic-color1};
+  --graficBar2:#{$graphic-color2};
   }
+
+
+  .dark {
+  --text-dark: #e5e7eb;
+  --text-dark-muted: #9ca3af;
+  --text-light: #ffffff;
+  --text-light-muted: #9ca3af;
+
+  --bg-app: linear-gradient(45deg, #1f2937, #111827);
+  --bg-header: #111827;
+  --bg-footer: #111827;
+  --bg-sidebar: #1f2937;
+
+  --bg-display: #111827;
+
+  --btn-interact: #6366f1;
+}

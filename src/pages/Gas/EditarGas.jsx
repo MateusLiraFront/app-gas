@@ -1,64 +1,68 @@
 import { useState } from "react";
-import styles from "./Perfil.module.css";
+import { Link } from "react-router-dom";
+import styles from "./EditarGas.module.css";
 
-export default function Perfil() {
+export default function EditarGas() {
   const [isEditing, setIsEditing] = useState(false);
 
   if (isEditing) {
-    return <EditarPerfil onBack={() => setIsEditing(false)} />;
+    return <FormularioGas onBack={() => setIsEditing(false)} />;
   }
 
-  return <PerfilView onEdit={() => setIsEditing(true)} />;
-}
-
-function PerfilView({ onEdit }) {
   return (
     <div className={`absolute inset-0 ${styles.defaultContainer}`}>
       <div className={styles.topDisplay}>
         <i className={`fa-solid fa-angle-left ${styles.arrow}`} />
-        <h3>Perfil do Usuário</h3>
+        <h3>Gás</h3>
       </div>
 
       <div className={styles.cardDisplay}>
         <div className={styles.header}>
-          <h1 className={styles.title}>Antônio Cardoso</h1>
+          <h1 className={styles.title}>Botijões Cadastrados</h1>
         </div>
 
-        <div className={styles.cadastroContainer}>
-          <label className={styles.title2}>
-            <strong>Informações da Conta</strong>
-          </label>
+        <ListGas onEdit={() => setIsEditing(true)} />
 
-          <div className={styles.infoGroup}>
-            <span className={styles.label}>Nome</span>
-            <span>Antônio Cardoso de Melo</span>
-          </div>
-
-          <div className={styles.infoGroup}>
-            <span className={styles.label}>Endereço</span>
-            <span>Rua dos Programadores, 33</span>
-          </div>
-
-          <div className={styles.infoGroup}>
-            <span className={styles.label}>E-mail</span>
-            <span>antocmelo@gmail.com</span>
-          </div>
-
-          <button className={styles.btnAdicionar} onClick={onEdit}>
-            Editar
-          </button>
-        </div>
+        <Link to="/cadastrar-gas" className={styles.btn}>
+          Novo
+        </Link>
       </div>
     </div>
   );
 }
 
-function EditarPerfil({ onBack }) {
+export function ListGas({ onEdit }) {
+  const gases = [
+    { id: "124b341k3", nome: "Área do Churrasco" },
+    { id: "98xk22aa9", nome: "Cozinha Principal" },
+  ];
+
+  return (
+    <>
+      {gases.map((gas) => (
+        <div key={gas.id} className={styles.containerGas}>
+          <div>
+            <strong>{gas.nome}</strong>
+            <div className={styles.gasId}>ID: {gas.id}</div>
+          </div>
+
+          <i
+            className="fa-solid fa-pen-to-square"
+            style={{ color: "var(--btn-interact)", cursor: "pointer" }}
+            onClick={onEdit}
+          />
+        </div>
+      ))}
+    </>
+  );
+}
+
+function FormularioGas({ onBack }) {
   const [form, setForm] = useState({
     nome: "",
     endereco: "",
-    email: "",
-    senha: "",
+    modelo: "P13",
+    equipamentoId: "",
   });
 
   function handleChange(e) {
@@ -78,16 +82,17 @@ function EditarPerfil({ onBack }) {
 
       <div className={styles.cardDisplay}>
         <div className={styles.header}>
-          <h1 className={styles.title}>Editar Perfil</h1>
+          <h1 className={styles.title}>Informações do Botijão</h1>
         </div>
 
         <form className={styles.cadastroContainer}>
           <div className={styles.formGroup}>
-            <label>Nome</label>
+            <label>Nome do Botijão</label>
             <input
               type="text"
               name="nome"
               value={form.nome}
+              placeholder="Ex: Área do Churrasco"
               onChange={handleChange}
               required
             />
@@ -99,34 +104,35 @@ function EditarPerfil({ onBack }) {
               type="text"
               name="endereco"
               value={form.endereco}
+              placeholder="Rua dos Programadores, 33"
               onChange={handleChange}
               required
             />
           </div>
 
           <div className={styles.formGroup}>
-            <label>E-mail</label>
-            <input
-              type="email"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              required
-            />
+            <label>Modelo do Botijão</label>
+            <select name="modelo" value={form.modelo} required>
+              <option value="P2">P2</option>
+              <option value="P5">P5</option>
+              <option value="P8">P8</option>
+              <option value="P13">P13</option>
+            </select>
           </div>
 
           <div className={styles.formGroup}>
-            <label>Senha</label>
+            <label>ID do Equipamento</label>
             <input
-              type="password"
-              name="senha"
-              value={form.senha}
+              type="text"
+              name="equipamentoId"
+              value={form.equipamentoId}
+              placeholder="Ex: 124b341k3"
               onChange={handleChange}
               required
             />
           </div>
 
-          <button className={styles.btnAdicionar} type="submit">
+          <button className={styles.btn} type="submit">
             Salvar
           </button>
         </form>

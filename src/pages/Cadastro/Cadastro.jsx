@@ -1,26 +1,92 @@
-import React, { useState } from 'react'
-import './Cadastro.css';
+import React, { useState } from "react";
+import styles from "./Cadastro.module.css";
 import { Link } from "react-router-dom";
+import logGoogle from "../../assets/Google.png";
+import logFacebook from "../../assets/Facebook.png";
+import logo from "../../assets/logo-header-light.png";
 
-export default function Cadastro() {
-   
-    return (
-          <div className='default-container'>
+
+export default function Login() {
+  const [tipo, setTipo] = useState("");
+
+  return (
+    <div className={styles.cadastroContainer}>
+      <div className={styles.cadastroBox}>
+        <picture  alt="logo-header-light.png"
+               className={styles.logo}>
+          <source media="(min-hight: 800px)" srcset=""/>
+          <img
+               src={logo}
+               alt="logo-header-light.png"
+               className={styles.logo}
+             />
+        </picture>
+
+      <h1 className={styles.titulo}>Cadastrar</h1>
+
+        <div className={styles.cadastroform}>
+
+        <label htmlFor="email" className={styles.label}>
+          E-mail
+        </label>
+
+        <input
+          id="email"
+          type="email"
+          placeholder="E-mail"
+          className={styles.input}
+        />
+
+        <label htmlFor="senha" className={styles.label}>
+          Senha
+        </label>
+        <input
+          id="senha"
+          type="password"
+          placeholder="Senha"
+          className={styles.inputSenha}
+        />
+
+  <label htmlFor="tipo" className={styles.label}>
+          Tipo de conta
+        </label>
+        <select
+          id="tipo"
+          className={styles.selectTipo}
+          value={tipo}
+          onChange={(e) => setTipo(e.target.value)}
+        >
           
-               <div className="login-header text-center mb-4">
-                <h2 className="text-2xl font-bold text-center">Cadastro</h2>
-                </div>
-                    <Link
-                    className='button-action'
-                    to="/home">
-                    Cadastrar
-                    </Link>
+          <option value="Usuário Comum">Usuário Comum</option>
+          <option value="Gestor de Cliente">Gestor de Cliente</option>
+        </select>
 
-                   <Link
-                    className='link'
-                    to="/login">
-                    <>Já possuo cadastro</>
-                    </Link>
-            </div>
-    )
+        </div>
+
+
+        <Link className={styles.btnCadastrar} to="/home">
+          CADASTRAR
+        </Link>
+
+ 
+
+        <div className={styles.divisorLogin}>
+          ou faça Login com:
+        </div>
+
+        <div className={styles.social_area}>
+          <button className={styles.socialBtn}>
+            <img src={logGoogle} alt="Google" />
+          </button>
+
+          <button className={styles.socialBtn}>
+            <img src={logFacebook} alt="Facebook" />
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    
+  );
 }
