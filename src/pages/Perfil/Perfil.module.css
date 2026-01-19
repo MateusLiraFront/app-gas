@@ -1,69 +1,94 @@
 .defaultContainer {
   max-width: 80vw;
   display: flex;
-  align-items: flex-start;
   flex-direction: column;
+  align-items: flex-start;
   padding-bottom: 80px;
 }
 
-.appLogo{
-    margin-bottom: 20px;
+.topDisplay {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.topDisplay{
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
+.arrow {
+  cursor: pointer;
 }
 
-.cardDisplay{
-    width: 80vw;
-    background-color: var(--bg-display-dark);
-    color: var(--text-dark);
-    border-radius: 18px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 0 30px;
-    margin-top: 30px;
-}
+.cardDisplay {
+  width: 80vw;
+  margin-top: 30px;
+  padding-bottom: 30px;
 
-.header{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 14px;
-}
+  background-color: var(--bg-display-dark);
+  color: var(--text-dark);
+  border-radius: 18px;
 
-
-.gasName{
-    font-size: 22px;
-}
-.arrow{
-    /* font-size: 30px;
-    color: #98add3; */
-    cursor: pointer;
-}
-
-.cadastroContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.header {
+  width: 100%;
+  padding: 14px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 24px;
+}
+
+.cadastroContainer {
   width: 90%;
   max-width: 380px;
-  padding: 18px 30px;
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
   background-color: var(--bg-display);
   border-radius: 15px;
 }
 
-.formGroup {
-  width: 100%;
+.title2 {
+  font-size: 14px;
+  color: var(--text-dark-muted);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.infoGroup {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  gap: 4px;
+
+  padding: 12px 14px;
+  border-radius: 12px;
+  background-color: #f8fafc;
+}
+
+.label {
+  font-size: 12px;
+  color: var(--text-light-muted);
+}
+
+.infoGroup span:last-child {
+  font-size: 15px;
+  font-weight: 500;
+  color: #111827;
+  word-break: break-word;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
   gap: 5px;
 }
 
@@ -71,11 +96,9 @@
   font-size: 14px;
   font-weight: 600;
   color: var(--text-dark);
-  margin-bottom: 4px;
 }
 
 .formGroup input {
-  width: 100%;
   height: 40px;
   padding: 0 12px;
 
@@ -86,73 +109,34 @@
   outline: none;
 }
 
-.formGroup input:focus {
-  border-color: var(--text-light-muted);
-}
-
-.inputIcon {
-  position: relative;
-}
-
-.inputIcon input {
-  padding-right: 40px;
-}
-
-.inputIcon i {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #6c7ae0;
-  pointer-events: none;
-}
-
 .btnAdicionar {
   margin-top: 12px;
-  width: 60%;
-  height: 42px;
+  padding: 12px;
 
-  border-radius: 12px;
+  border-radius: 14px;
   border: none;
 
   background-color: var(--btn-interact);
-  color: var(--text-light);
+  color: #fff;
 
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-
-  transition: background-color 0.25s ease;
 }
 
-.btnAdicionar:hover {
-  background-color: #3b4cc0;
+@media (min-width: 800px) {
+  .title {
+    font-size: 30px;
+  }
 }
 
-@media(min-width:800px){
-  .appLogo{
-        width: 120px;
-    }
-    .title{
-        font-size: 30px;
-    } 
-}
+@media (max-width: 800px) {
+  .title {
+    font-size: 24px;
+  }
 
-@media(max-width:800px){
-  .appLogo{
-        width: 120px;
-    }
-    .title{
-        font-size: 24px;
-    } 
-    .title2{
-        font-size: 18px;
-        margin-bottom: 20px
-    } 
-    .subtitle{
-        font-size: 14px
-    }
-    label{
-        font-size: 18px;
-    }
+  .title2 {
+    font-size: 18px;
+    text-align: center;
+  }
 }

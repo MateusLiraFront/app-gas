@@ -61,3 +61,20 @@ $graphic-color2: #64A886;
   --graficBar1:#{$graphic-color1};
   --graficBar2:#{$graphic-color2};
   }
+
+
+  .dark {
+  --text-dark: #e5e7eb;
+  --text-dark-muted: #9ca3af;
+  --text-light: #ffffff;
+  --text-light-muted: #9ca3af;
+
+  --bg-app: linear-gradient(45deg, #1f2937, #111827);
+  --bg-header: #111827;
+  --bg-footer: #111827;
+  --bg-sidebar: #1f2937;
+
+  --bg-display: #111827;
+
+  --btn-interact: #6366f1;
+}

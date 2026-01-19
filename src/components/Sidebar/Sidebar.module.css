@@ -32,7 +32,8 @@
 .item{
     width: 100%;
     padding: 10px;
-    color: var(--text-light)
+    color: var(--text-light);
+    background-color: var(--bg-sidebar);
 }
 
 .item:hover{
