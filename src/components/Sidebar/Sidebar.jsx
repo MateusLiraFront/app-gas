@@ -48,7 +48,7 @@ export default function Sidebar({ isOpen, setIsOpen, onToggleTheme, darkMode, on
             className={`${styles.link} ${styles.item}`}
             onClick={closeSidebar}
           >
-            Endereco
+            Endereço
           </Link>
 
           {/* <Link
