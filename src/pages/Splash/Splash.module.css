@@ -1,0 +1,39 @@
+.appLogo{
+    max-width: 300px;
+}
+
+.splashContainer{
+    background: var(--bg-initial);
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.link {
+  display: inline-block;
+  padding: 12px 40px;
+  background-color: #ffffff;
+  color: #6a82fb; 
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.link:hover {
+  background-color: rgba(72, 121, 194, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+  color: #e9eaf1;
+}
+
