@@ -1,8 +1,9 @@
 import styles from "./Sidebar.module.css";
 import { Link } from "react-router-dom";
 
-export default function Sidebar({ isOpen, setIsOpen }) {
+export default function Sidebar({ isOpen, setIsOpen, onToggleTheme, darkMode, onLogout,}) {
   const closeSidebar = () => setIsOpen(false);
+
   return (
     <div
       className={`${styles.sidebarDisplay} ${
@@ -11,9 +12,12 @@ export default function Sidebar({ isOpen, setIsOpen }) {
     >
       <div className={styles.sidebarInner}>
         <div className={styles.itensDisplay}>
-          <Link to="#" className={`${styles.link} ${styles.item}`}>
-            Modo Noturno
-          </Link>
+            <button
+      onClick={onToggleTheme}
+      className={`${styles.link} ${styles.item}`}
+    >
+      {darkMode ? "Modo Claro" : "Modo Noturno"}
+    </button>
 
           <Link
             to="/perfil"
@@ -47,13 +51,20 @@ export default function Sidebar({ isOpen, setIsOpen }) {
             Endereco
           </Link>
 
-          <Link
+          {/* <Link
             to="/login"
             className={`${styles.link} ${styles.item}`}
             onClick={closeSidebar}
           >
             Sair
-          </Link>
+          </Link> */}
+
+          <button
+            onClick={onLogout}
+            className={`${styles.link} ${styles.item}`}
+          >
+            Sair
+          </button>
         </div>
       </div>
     </div>
