@@ -64,13 +64,14 @@
 
 .divider {
   font-size: 13px;
-  margin-bottom: 12px;
+  margin-bottom: 30px; 
 }
 
 .socialArea {
   display: flex;
   justify-content: center;
   gap: 16px;
+  margin-top: 30px; 
 }
 
 .socialBtn {
@@ -88,6 +89,6 @@
 
 .socialBtn img {
   height: 80px;
-   width: auto;
+  width: auto;
   transform: scale(1.9);
 }
