@@ -48,6 +48,7 @@ export default function DefaultLayout() {
         setIsOpen={setIsOpen}
         onToggleTheme={toggleTheme}
         darkMode={darkMode}
+        onLogout={() => setShowLogoutModal(true)}
       />
 
       </div>

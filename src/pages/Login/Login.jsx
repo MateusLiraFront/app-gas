@@ -30,6 +30,8 @@ export default function Login() {
           className={styles.input}
         />
 
+        
+
         <label htmlFor="tipo" className={styles.label}>
           Tipo de conta
         </label>

@@ -75,7 +75,8 @@
 }
 
 .socialBtn {
-  flex: 1;
+  flex: 0;
+  width: 120px;
   height: 44px;
   background: none;
   border: none;
@@ -92,3 +93,4 @@
   width: auto;
   transform: scale(1.9);
 }
+
