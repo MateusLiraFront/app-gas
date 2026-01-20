@@ -3,15 +3,18 @@ import styles from "./Suporte.module.css";
 import { Link } from "react-router-dom";
 import logGoogle from "../../assets/Google.png";
 import logFacebook from "../../assets/Facebook.png";
+import logo from "../../assets/logo-header-light.png";
+import { useNavigate } from "react-router-dom";
 
 export default function Suporte() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email) return;
-    
+
     setIsLoading(true);
     setTimeout(() => {
       alert(`Instruções enviadas para: ${email}`);
@@ -26,12 +29,18 @@ export default function Suporte() {
   return (
     <div className={styles.loginContainer}>
       <div className={styles.loginBox}>
+        
+        <picture alt="logo-header-light.png" className={styles.logo}>
+          <source media="(min-hight: 800px)" srcset="" />
+          <img src={logo} alt="logo-header-light.png" className={styles.logo} />
+        </picture>
+        
         <h1 className={styles.title}>Recuperar Senha</h1>
-        <p className={styles.subtitle}>Digite o e-mail cadastrado</p>
+        <p className={styles.subtitle}></p>
 
         <form onSubmit={handleSubmit}>
           <label className={styles.label} htmlFor="email">
-            E-mail
+            Digite o e-mail cadastrado
           </label>
           <input
             id="email"
@@ -42,8 +51,8 @@ export default function Suporte() {
             required
           />
 
-          <button 
-            className={styles.btnLogin} 
+          <button
+            className={styles.btnLogin}
             type="submit"
             disabled={isLoading}
           >
@@ -56,10 +65,15 @@ export default function Suporte() {
           <Link to="/cadastro"> Clique aqui</Link>
         </p>
 
-        <p className={styles.divider}>Ou faça Login com:</p>
+        <div className={styles.return} onClick={() => navigate(-1)}>
+          <i className={`fa-solid fa-angle-left ${styles.arrow}`} />
+          <p>Voltar para tela de Login</p>
+        </div>
+
+        <p className={styles.divider}>Ou entrar com:</p>
 
         <div className={styles.socialArea}>
-          <button 
+          <button
             className={styles.socialBtn}
             onClick={() => handleSocialLogin("Google")}
             aria-label="Login com Google"
@@ -67,7 +81,7 @@ export default function Suporte() {
             <img src={logGoogle} alt="Google" />
           </button>
 
-          <button 
+          <button
             className={styles.socialBtn}
             onClick={() => handleSocialLogin("Facebook")}
             aria-label="Login com Facebook"

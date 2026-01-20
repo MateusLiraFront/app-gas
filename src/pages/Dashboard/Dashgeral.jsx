@@ -1,12 +1,14 @@
 import styles from "./Dashgeral.module.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Dashgeral() {
   const [active, setActive] = useState("week");
+  const navigate = useNavigate();
 
   return (
     <div className={`absolute inset-0 ${styles.dashboardContainer}`}>
-      <div className={styles.topDisplay}>
+      <div className={styles.topDisplay} onClick={() => navigate(-1)}>
         <i className={`fa-solid fa-angle-left ${styles.arrow}`} />
         <h3>Informações de Consumo</h3>
       </div>

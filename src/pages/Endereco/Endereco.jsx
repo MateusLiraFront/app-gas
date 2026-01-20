@@ -1,8 +1,10 @@
 import styles from "./Endereco.module.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Endereco() {
   const [isEditing, setIsEditing] = useState(false);
+  const navigate = useNavigate();
 
   if (isEditing) {
     return <EditarEndereco onBack={() => setIsEditing(false)} />;
@@ -10,14 +12,15 @@ export default function Endereco() {
 
   return (
     <div className={`absolute inset-0 ${styles.defaultContainer}`}>
-      <div className={styles.topDisplay}>
+      <div className={styles.topDisplay}
+      onClick={()=>navigate(-1)}>
         <i className={`fa-solid fa-angle-left ${styles.arrow}`} />
         <h3>Endereço do Usuário</h3>
       </div>
 
       <div className={styles.cardDisplay}>
         <div className={styles.header}>
-          <h1 className={styles.title}>Selecione Local</h1>
+          <h1 className={styles.title}>Lista de Endereços</h1>
         </div>
 
         <ListEndereco onEdit={() => setIsEditing(true)} />

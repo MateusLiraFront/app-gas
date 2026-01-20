@@ -11,7 +11,7 @@ import Dashgeral from "./pages/Dashboard/Dashgeral";
 import Perfil from "./pages/Perfil/Perfil";
 import CadastrarGas from "./pages/Gas/CadastrarGas";
 import EditarGas from "./pages/Gas/EditarGas";
-import Endereco from "./components/Endereco/Endereco";
+import Endereco from "./pages/Endereco/Endereco";
 import './styles/index.scss';
 
 function App() {

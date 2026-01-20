@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import styles from "./CadastrarGas.module.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function CadastrarGas() {
+  const navigate = useNavigate();
+
   return (
     <div className={`absolute inset-0 ${styles.defaultContainer}`}>
-      <div className={styles.topDisplay}>
+      <div className={styles.topDisplay}
+      onClick={()=> navigate(-1)}>
         <i className={`fa-solid fa-angle-left ${styles.arrow}`} />
         <h3>Novo Gás</h3>
       </div>

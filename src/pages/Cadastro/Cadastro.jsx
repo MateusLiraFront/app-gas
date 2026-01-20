@@ -33,7 +33,7 @@ export default function Login() {
         <input
           id="email"
           type="email"
-          placeholder="E-mail"
+          placeholder="seuemail@mail.com"
           className={styles.input}
         />
 

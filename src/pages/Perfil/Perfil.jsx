@@ -1,8 +1,11 @@
 import { useState } from "react";
 import styles from "./Perfil.module.css";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Perfil() {
   const [isEditing, setIsEditing] = useState(false);
+  const navigate = useNavigate();
 
   if (isEditing) {
     return <EditarPerfil onBack={() => setIsEditing(false)} />;
@@ -12,9 +15,11 @@ export default function Perfil() {
 }
 
 function PerfilView({ onEdit }) {
+  const navigate = useNavigate();
   return (
     <div className={`absolute inset-0 ${styles.defaultContainer}`}>
-      <div className={styles.topDisplay}>
+      <div className={styles.topDisplay}
+       onClick={() => navigate(-1)} >
         <i className={`fa-solid fa-angle-left ${styles.arrow}`} />
         <h3>Perfil do Usuário</h3>
       </div>

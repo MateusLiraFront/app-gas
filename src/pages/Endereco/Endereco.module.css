@@ -1,5 +1,6 @@
 .defaultContainer {
   max-width: 80vw;
+  min-height: 100vh;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
