@@ -7,6 +7,11 @@
   padding-bottom: 80px;
 }
 
+.title{
+  color: var(--text-dark-dark);
+  text-align: center;
+}
+
 .appLogo{
     margin-bottom: 20px;
 }

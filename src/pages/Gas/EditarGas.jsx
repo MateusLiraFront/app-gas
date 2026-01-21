@@ -45,7 +45,7 @@ export function ListGas({ onEdit }) {
       {gases.map((gas) => (
         <div key={gas.id} className={styles.containerGas}>
           <div>
-            <strong>{gas.nome}</strong>
+            <strong className={styles.gasName}>{gas.nome}</strong>
             <div className={styles.gasId}>ID: {gas.id}</div>
           </div>
 

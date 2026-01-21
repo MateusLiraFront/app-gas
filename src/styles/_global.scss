@@ -2,6 +2,7 @@
 
 
 $text-dark: #1f252c;
+$text-dark-on-dark: #1f252c;
 $text-dark-muted: #2f353d;
 $text-light: #FFFFFF;
 $text-light-muted:#9ca3af;
@@ -33,6 +34,7 @@ $graphic-color2: #64A886;
 :root {
 
   --text-dark: #{$text-dark};
+  --text-dark-dark: #{$text-dark-on-dark};
   --text-dark-muted: #{$text-dark-muted};
   --text-light: #{$text-light};
   --text-light-muted: #{$text-light-muted};
@@ -65,6 +67,7 @@ $graphic-color2: #64A886;
 
   .dark {
   --text-dark: #e5e7eb;
+  --text-dark-dark: #1f252c;
   --text-dark-muted: #9ca3af;
   --text-light: #ffffff;
   --text-light-muted: #9ca3af;

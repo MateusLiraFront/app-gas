@@ -37,7 +37,7 @@ const DataInstalacao = new Date("2026-01-08");
           <div className={styles.displayDetail}>
             <div className={styles}>
               <label>
-                <strong>STATUS: </strong>
+                <strong className={styles.titleStatus}>STATUS: </strong>
               </label>
               <label>
                 <strong >

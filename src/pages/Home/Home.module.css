@@ -58,6 +58,10 @@ main {
   border-radius: 20px;
 }
 
+.titleStatus{
+  color: var(--text-dark-dark);
+}
+
 .botijao{
   display: flex;
   justify-content: center;

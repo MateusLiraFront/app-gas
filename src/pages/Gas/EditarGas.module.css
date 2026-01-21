@@ -1,3 +1,11 @@
+.title{
+  color: var(--text-dark-dark);
+}
+
+.gasName{
+  color: var(--text-dark-dark);
+}
+
 .defaultContainer {
   max-width: 80vw;
    min-height: 100vh;
