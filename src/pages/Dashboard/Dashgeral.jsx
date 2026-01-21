@@ -28,7 +28,7 @@ export default function Dashgeral() {
               }`}
               onClick={() => setActive("week")}
             >
-              {active === "week" ? <strong>Semanal</strong> : "Semanal"}
+              {active === "week" ? <strong className={styles}>Semanal</strong> : "Semanal"}
             </button>
 
             <button
