@@ -35,7 +35,10 @@ export default function DefaultLayout() {
   return (
     <div className={styles.defaultLayout}>
       <div className={styles.header}>
-        <Header />
+        <Header 
+        onToggleTheme={toggleTheme}
+        darkMode={darkMode}
+        />
       </div>
 
       {isOpen && (

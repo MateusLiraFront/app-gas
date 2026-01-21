@@ -1,7 +1,13 @@
 import styles from "./Sidebar.module.css";
 import { Link } from "react-router-dom";
 
-export default function Sidebar({ isOpen, setIsOpen, onToggleTheme, darkMode, onLogout,}) {
+export default function Sidebar({
+  isOpen,
+  setIsOpen,
+  onToggleTheme,
+  darkMode,
+  onLogout,
+}) {
   const closeSidebar = () => setIsOpen(false);
 
   return (
@@ -12,12 +18,12 @@ export default function Sidebar({ isOpen, setIsOpen, onToggleTheme, darkMode, on
     >
       <div className={styles.sidebarInner}>
         <div className={styles.itensDisplay}>
-            <button
-      onClick={onToggleTheme}
-      className={`${styles.link} ${styles.item}`}
-    >
-      {darkMode ? "Modo Claro" : "Modo Noturno"}
-    </button>
+          <button
+            onClick={onToggleTheme}
+            className={`${styles.link} ${styles.item}`}
+          >
+            {darkMode ? "Modo Claro" : "Modo Noturno"}
+          </button>
 
           <Link
             to="/perfil"
