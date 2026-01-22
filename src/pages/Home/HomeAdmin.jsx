@@ -25,12 +25,12 @@ export default function HomeAdmin() {
     nome: "Antônio",
     sobrenome: "Cardoso",
     ativos: 1,
-    botijoes: [{ nome: "Gás Casa", percentual: 15 }],
+    botijoes: [{ nome: "Gás Cozinha", percentual: 15 }],
   };
 
   const cliente3 = {
-    nome: "Antônio",
-    sobrenome: "Cardoso",
+    nome: "Pedro",
+    sobrenome: "Lins",
     ativos: 0,
     botijoes: [{ nome: "Gás Casa", percentual: 0 }],
   };
