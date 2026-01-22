@@ -122,7 +122,7 @@
   border: none;
 
   background-color: var(--btn-interact);
-  color: var(--text-light);
+   color: #fff;
 
   font-size: 15px;
   font-weight: 600;

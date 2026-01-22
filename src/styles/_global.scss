@@ -1,38 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 $text-dark: #1f252c;
 $text-dark-on-dark: #1f252c;
 $text-dark-muted: #2f353d;
-$text-light: #FFFFFF;
-$text-light-muted:#9ca3af;
+$text-light: #ffffff;
+$text-light-muted: #9ca3af;
 
-$background-initial: #28C0F7, #4DACF9, #5A80FC, #765EFC, #997DFF;
-$background-app: #627BE0, #664FEA, #7C5DED;
-$background-footer: #2D2899;
-$background-header: #2D2899;
-$background-sidebar: #3E39BE;
+$background-initial: #28c0f7, #4dacf9, #5a80fc, #765efc, #997dff;
+$background-app: #627be0, #664fea, #7c5ded;
+$background-footer: #2d2899;
+$background-header: #2d2899;
+$background-sidebar: #3e39be;
 
 $background-display: #f7f7f7;
 $background-display-dark: #d5cff8;
 
-$background-shadow: #D3CAFF;
-$background-shadow-bot: #8D78FF;
+$background-shadow: #d3caff;
+$background-shadow-bot: #8d78ff;
 
-$button-interact: #291B99;
+$button-interact: #291b99;
 $button-negative: #992828;
 
-$color-alert: #F9BA01;
-$color-danger: #E00030;
+$color-alert: #f9ba01;
+$color-danger: #e00030;
 $color-great: #13b451;
 
 // Cores para gráfico:
 $graphic-color1: #0f285e;
-$graphic-color2: #64A886;
+$graphic-color2: #64a886;
 // (incluir mais cores para gráfico e ajustar as existentes)...
 
 :root {
-
   --text-dark: #{$text-dark};
   --text-dark-dark: #{$text-dark-on-dark};
   --text-dark-muted: #{$text-dark-muted};
@@ -42,16 +40,16 @@ $graphic-color2: #64A886;
   --font-family: "Inter", sans-serif;
 
   --bg-initial: linear-gradient(45deg, #{$background-initial});
-  --bg-app: linear-gradient(45deg, #{$background-app}) ;
+  --bg-app: linear-gradient(45deg, #{$background-app});
   --bg-footer: #{$background-footer};
   --bg-header: #{$background-header};
-  --bg-sidebar:  #{$background-sidebar};
+  --bg-sidebar: #{$background-sidebar};
 
   --bg-display: #{$background-display};
   --bg-display-dark: #{$background-display-dark};
 
-  --bg-shadow:  #{$background-shadow};
-  --bg-shadow-bot:  #{$background-shadow-bot};
+  --bg-shadow: #{$background-shadow};
+  --bg-shadow-bot: #{$background-shadow-bot};
 
   --btn-interact: #{$button-interact};
   --btn-negative: #{$button-negative};
@@ -60,12 +58,11 @@ $graphic-color2: #64A886;
   --color-danger: #{$color-danger};
   --color-great: #{$color-great};
 
-  --graficBar1:#{$graphic-color1};
-  --graficBar2:#{$graphic-color2};
-  }
+  --graficBar1: #{$graphic-color1};
+  --graficBar2: #{$graphic-color2};
+}
 
-
-  .dark {
+.dark {
   --text-dark: #e5e7eb;
   --text-dark-dark: #1f252c;
   --text-dark-muted: #9ca3af;
@@ -80,4 +77,18 @@ $graphic-color2: #64A886;
   --bg-display: #111827;
 
   --btn-interact: #6366f1;
+}
+
+.light {
+  --bg-app: #{$background-display};
+  --bg-header: #f8fafc;
+  --bg-footer: #f8fafc;
+  --bg-sidebar: #e5e7eb;
+
+  --text-dark: #1f2937;
+  --text-light: #1f2937;
+
+  --bg-display: #f0f1f3;
+  --bg-display-dark: #e6eaf1;
+   --btn-interact: #6366f1;
 }

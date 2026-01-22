@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 export default function Sidebar({
   isOpen,
   setIsOpen,
-  onToggleTheme,
-  darkMode,
+  theme,
+  onChangeTheme,
   onLogout,
   variant = "default",
 }) {
@@ -21,12 +21,46 @@ export default function Sidebar({
     >
       <div className={styles.sidebarInner}>
         <div className={styles.itensDisplay}>
-          <button
-            onClick={onToggleTheme}
-            className={`${styles.link} ${styles.item}`}
-          >
-            {darkMode ? "Modo Claro" : "Modo Noturno"}
-          </button>
+          <div className={styles.themeSwitcher}>
+           <strong className={styles.mode}> Modos:</strong>
+            <button
+              onClick={() => onChangeTheme("light")}
+              className={`${styles.iconBtn} ${theme === "light" ? styles.active : ""}`}
+              aria-label="Light mode"
+            >
+              <i
+                className={
+                  theme === "light" ? "fa-regular fa-sun" : "fa-solid fa-sun"
+                }
+              />
+            </button>
+
+            <button
+              onClick={() => onChangeTheme("default")}
+              className={`${styles.iconBtn} ${theme === "default" ? styles.active : ""}`}
+              aria-label="Default mode"
+            >
+              <i
+                className={
+                  theme === "default"
+                    ? "fa-regular fa-star"
+                    : "fa-solid fa-star"
+                }
+              />
+            </button>
+
+            <button
+              onClick={() => onChangeTheme("dark")}
+              className={`${styles.iconBtn} ${theme === "dark" ? styles.active : ""}`}
+              aria-label="Dark mode"
+            >
+              <i
+                className={
+                  theme === "dark" ? "fa-regular fa-moon" : "fa-solid fa-moon"
+                }
+              />
+            </button>
+          </div> 
 
           <Link
             to={perfilRoute}
