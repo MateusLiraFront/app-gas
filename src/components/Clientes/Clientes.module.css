@@ -1,0 +1,80 @@
+.wrapper {
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: 14px;
+}
+
+/* CARD PRINCIPAL */
+.container {
+  background: #e8e6ff;
+  border-radius: 18px;
+  padding: 16px 18px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.container:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+/* NOME */
+.nome {
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* ATIVOS */
+.ativos {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: 15px;
+  font-weight: 700;
+  color: #374151;
+}
+
+.statusDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+/* COLLAPSE */
+.collapse {
+  background: #c7c3ff;
+  border-radius: 0 0 18px 18px;
+  padding: 14px 18px;
+}
+
+/* BOTIJÕES */
+.botijao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* CORES */
+.vermelho {
+  color: #dc2626;
+}
+
+.amarelo {
+  color: #ca8a04;
+}
+
+.verde {
+  color: #16a34a;
+}

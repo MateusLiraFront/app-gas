@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import Sidebar from "../components/Sidebar/Sidebar";
-import styles from "./DefaultLayout.module.css";
+import styles from "./LayoutAdmin.module.css";
 
-export default function DefaultLayout() {
+export default function LayoutAdmin() {
   const [isOpen, setIsOpen] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
@@ -49,7 +49,7 @@ export default function DefaultLayout() {
           onToggleTheme={toggleTheme}
           darkMode={darkMode}
           onLogout={() => setShowLogoutModal(true)}
-          variant="default"
+          variant="admin"
         />
       </div>
 
@@ -60,7 +60,7 @@ export default function DefaultLayout() {
       </main>
 
       <div className={styles.footer}>
-        <Footer isOpen={isOpen} setIsOpen={setIsOpen} variant="default" />
+        <Footer isOpen={isOpen} setIsOpen={setIsOpen} variant="admin" />
       </div>
 
       {showLogoutModal && (

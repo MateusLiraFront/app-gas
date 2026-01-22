@@ -7,8 +7,11 @@ export default function Sidebar({
   onToggleTheme,
   darkMode,
   onLogout,
+  variant = "default",
 }) {
   const closeSidebar = () => setIsOpen(false);
+  const isAdmin = variant === "admin";
+  const perfilRoute = isAdmin ? "/admin/perfil" : "/perfil";
 
   return (
     <div
@@ -26,44 +29,40 @@ export default function Sidebar({
           </button>
 
           <Link
-            to="/perfil"
+            to={perfilRoute}
             className={`${styles.link} ${styles.item}`}
             onClick={closeSidebar}
           >
             Perfil
           </Link>
 
-          <Link
-            to="/cadastrar-gas"
-            className={`${styles.link} ${styles.item}`}
-            onClick={closeSidebar}
-          >
-            Cadastrar Gás
-          </Link>
+          {!isAdmin && (
+            <>
+              <Link
+                to="/cadastrar-gas"
+                className={`${styles.link} ${styles.item}`}
+                onClick={closeSidebar}
+              >
+                Cadastrar Gás
+              </Link>
 
-          <Link
-            to="/editar-gas"
-            className={`${styles.link} ${styles.item}`}
-            onClick={closeSidebar}
-          >
-            Editar Gás
-          </Link>
+              <Link
+                to="/editar-gas"
+                className={`${styles.link} ${styles.item}`}
+                onClick={closeSidebar}
+              >
+                Editar Gás
+              </Link>
 
-          <Link
-            to="/endereco"
-            className={`${styles.link} ${styles.item}`}
-            onClick={closeSidebar}
-          >
-            Endereço
-          </Link>
-
-          {/* <Link
-            to="/login"
-            className={`${styles.link} ${styles.item}`}
-            onClick={closeSidebar}
-          >
-            Sair
-          </Link> */}
+              <Link
+                to="/endereco"
+                className={`${styles.link} ${styles.item}`}
+                onClick={closeSidebar}
+              >
+                Endereço
+              </Link>
+            </>
+          )}
 
           <button
             onClick={onLogout}

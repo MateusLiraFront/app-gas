@@ -123,16 +123,6 @@ main {
     background-color: var(--btn-interact);
 }
 
-/* .pointer.A{
-    background-color: #c48027;
-}
-.pointer.B{
-    background-color: #12405c;
-}
-.pointer.C{
-    background-color: #2ccf47;
-} */
-
 @media(min-width:800px){
   .appLogo{
         width: 120px;
@@ -149,6 +139,14 @@ main {
     }
 
   .homeContainer{
+    height: 80vh;
     padding-bottom: 80px;
   }
 }
+
+/* Início do CSS Pagina Home ADM */
+.displayClientes{
+margin-top: 20px;
+}
+
+/* Fim do CSS Página ADM */

@@ -1,10 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import DefaultLayout from "./layouts/DefaultLayout";
+import LayoutAdmin from "./layouts/LayoutAdmin";
 import Splash from "./pages/Splash/Splash";
 import Login from "./pages/Login/Login";
 import Cadastro from "./pages/Cadastro/Cadastro";
 import Home from "./pages/Home/Home";
+import HomeAdmin from "./pages/Home/HomeAdmin";
 import Suporte from "./pages/Suporte/Suporte";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Dashgeral from "./pages/Dashboard/Dashgeral";
@@ -24,15 +26,22 @@ function App() {
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/suporte" element={<Suporte />} />
 
-        {/* Rotas com layout */}
+        {/* Rotas com layout Client */}
         <Route element={<DefaultLayout />}>
           <Route path="/home" element={<Home />} />
+          {/* <Route path="/admin/home" element={<HomeAdmin/>} /> */}
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashgeral" element={<Dashgeral />} />
           <Route path="/perfil" element={<Perfil />} />
           <Route path="/cadastrar-gas" element={<CadastrarGas />} />
           <Route path="/editar-gas" element={<EditarGas />} />
           <Route path="/endereco" element={<Endereco/>} />
+        </Route>
+
+        {/* Rotas com layout ADMIN */}
+        <Route element={<LayoutAdmin />}>
+          <Route path="/admin/home" element={<HomeAdmin/>} />
+          <Route path="/admin/perfil" element={<Perfil />} />
         </Route>
       </Routes>
     </BrowserRouter>

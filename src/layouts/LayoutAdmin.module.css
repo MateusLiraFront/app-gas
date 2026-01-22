@@ -1,0 +1,92 @@
+.defaultLayout {
+    margin: 0 auto;
+    width: 100%;
+    
+}
+
+@media (min-width:800px){
+    .displayPrincipal{
+        height: 100%;
+        top: 0 !important;
+        margin-top: 80px;
+        background: var(--bg-app);
+    }
+    .sidebar{
+        display: none;
+    }
+    .footer{
+        display: none;
+    }
+     .appLogo{
+        width: 200px;
+    }
+}
+@media (max-width:800px){
+    .displayPrincipal{
+        height: 100%;
+        top: 0 !important;
+       background: var(--bg-app);
+    }
+    .header{
+        display: none;
+    }
+
+    .backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        z-index: 999;
+        transition: opacity 0.3s ease;
+    }
+
+    .sidebar{
+        /* display: none; */
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin-top: 0 !important;
+        height: 100vh;
+        z-index: 1000;
+    }
+
+    .appLogo{
+        width: 120px;
+    }
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 2000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 8px;
+  max-width: 280px;
+  width: 90%;
+  padding: 24px;
+}
+
+.modalActions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.btnCancel{
+    background-color: var(--text-light-muted);
+    padding: 10px;
+    width: 40%;
+}
+
+.btnSair{
+    background-color: var(--btn-negative);
+    width: 40%;
+}
