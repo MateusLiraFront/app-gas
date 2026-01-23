@@ -31,7 +31,6 @@ export default function DefaultLayout() {
   return (
     <div className={styles.defaultLayout}>
       <div className={styles.header}>
-        {/* Header NÃO controla mais tema */}
         <Header />
       </div>
 

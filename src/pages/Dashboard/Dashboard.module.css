@@ -64,11 +64,21 @@
 
 .barsContainer {
   flex: 1;
+  height: 100%; 
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
   border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+.barWrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 
 .bar {
   width: 20px;

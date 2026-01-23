@@ -3,17 +3,23 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo-header-light.png";
 
 export default function Dashboard() {
+  const MAX_KG = 13;
+
+  const calcularAltura = (kg) => {
+    return `${(kg / MAX_KG) * 100}%`;
+  };
+
   const consumos = [
-    { mes: "jan", height: "55%", special: false },
-    { mes: "fev", height: "40%", special: false },
-    { mes: "mar", height: "50%", special: false },
-    { mes: "abr", height: "45%", special: true },
-    { mes: "mai", height: "55%", special: true },
+    { mes: "jan", kg: 6.5, special: false },
+    { mes: "fev", kg: 5.3, special: false },
+    { mes: "mar", kg: 7.8, special: true },
+    { mes: "abr", kg: 4.9, special: false },
+    { mes: "mai", kg: 6.2, special: false },
+    { mes: "jun", kg: 8.1, special: true },
   ];
 
   return (
     <div className={styles.container}>
-
       <main className={styles.mainContent}>
         <div className={styles.selector}>
           <i className="fa-solid fa-circle-left" />
@@ -33,11 +39,14 @@ export default function Dashboard() {
               </div>
               <div className={styles.barsContainer}>
                 {consumos.map((item, index) => (
-                  <div key={index} className={styles.barWrapper}>
-                    <div 
-                      className={`${styles.bar} ${item.special ? styles.barGreen : styles.barBlue}`} 
-                      style={{ height: item.height }}
-                    ></div>
+                  <div className={styles.barWrapper}>
+                    <div
+                      title={`${item.kg} kg`}
+                      className={`${styles.bar} ${
+                        item.special ? styles.barGreen : styles.barBlue
+                      }`}
+                      style={{ height: calcularAltura(item.kg) }}
+                    />
                     <span className={styles.barLabel}>{item.mes}</span>
                   </div>
                 ))}

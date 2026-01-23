@@ -8,6 +8,7 @@ color: var(--text-dark-dark);
   align-items: flex-start;
   flex-direction: column;
   padding-bottom: 80px;
+  
 }
 
 .topDisplay{
@@ -28,6 +29,7 @@ color: var(--text-dark-dark);
     align-items: center;
     padding: 0 0 20px;
     margin-top: 30px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
 }
 
 .header{

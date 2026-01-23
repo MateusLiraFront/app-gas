@@ -8,34 +8,30 @@ import styles from "./LayoutAdmin.module.css";
 export default function LayoutAdmin() {
   const [isOpen, setIsOpen] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+  const [theme, setTheme] = useState("default");
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      document.documentElement.classList.add("dark");
-      setDarkMode(true);
-    }
+    const savedTheme = localStorage.getItem("theme") || "default";
+    handleThemeChange(savedTheme);
   }, []);
 
-  function toggleTheme() {
+  function handleThemeChange(newTheme) {
     const html = document.documentElement;
 
-    if (html.classList.contains("dark")) {
-      html.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-      setDarkMode(false);
-    } else {
-      html.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-      setDarkMode(true);
+    html.classList.remove("dark", "light");
+
+    if (newTheme !== "default") {
+      html.classList.add(newTheme);
     }
+
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
   }
 
   return (
     <div className={styles.defaultLayout}>
       <div className={styles.header}>
-        <Header onToggleTheme={toggleTheme} darkMode={darkMode} />
+        <Header />
       </div>
 
       {isOpen && (
@@ -46,8 +42,8 @@ export default function LayoutAdmin() {
         <Sidebar
           isOpen={isOpen}
           setIsOpen={setIsOpen}
-          onToggleTheme={toggleTheme}
-          darkMode={darkMode}
+          theme={theme}
+          onChangeTheme={handleThemeChange}
           onLogout={() => setShowLogoutModal(true)}
           variant="admin"
         />
