@@ -12,14 +12,11 @@ export default function Clientes({ cliente }) {
 
   return (
     <div className={styles.wrapper}>
-      {/* CABEÇALHO */}
       <div
         className={styles.container}
         onClick={() => setOpen(!open)}
       >
-        <div className={styles.nome}>
-          {cliente.nome} {cliente.sobrenome}
-        </div>
+        <div className={styles.nome}>{cliente.nome}</div>
 
         <div className={styles.ativos}>
           {cliente.ativos}
@@ -27,8 +24,7 @@ export default function Clientes({ cliente }) {
         </div>
       </div>
 
-      {/* COLLAPSE */}
-      {open && (
+      {open && cliente.botijoes.length > 0 && (
         <div className={styles.collapse}>
           {cliente.botijoes.map((botijao, index) => (
             <div
@@ -41,6 +37,14 @@ export default function Clientes({ cliente }) {
               <span>{botijao.percentual}%</span>
             </div>
           ))}
+        </div>
+      )}
+
+      {open && cliente.botijoes.length === 0 && (
+        <div className={styles.collapse}>
+          <span className={styles.semGas}>
+            Nenhum botijão cadastrado
+          </span>
         </div>
       )}
     </div>

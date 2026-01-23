@@ -1,56 +1,119 @@
+import { useState } from "react";
 import styles from "./Home.module.css";
-import { Percent, Status } from "../../components/Percent/Percent";
-import { Link } from "react-router-dom";
 import logo from "../../assets/logo-header-light.png";
 import Clientes from "../../components/Clientes/Clientes";
 
 export default function HomeAdmin() {
-  const DataInstalacao = new Date("2026-01-08");
-  const Termino = new Date("2026-03-22");
-  const PrevisaoDuracao = Math.ceil(
-    (Termino - DataInstalacao) / (1000 * 60 * 60 * 24),
-  );
+  const [clientes, setClientes] = useState([
+    {
+      nome: "Jorge da Mata",
+      email: "jorge@mail.com",
+      ativos: 2,
+      botijoes: [
+        { nome: "Gás Casa 1", percentual: 58 },
+        { nome: "Gás do Bar", percentual: 73 },
+      ],
+    },
+    {
+      nome: "Antônio Cardoso",
+      email: "antonio@mail.com",
+      ativos: 1,
+      botijoes: [{ nome: "Gás Cozinha", percentual: 15 }],
+    },
+    {
+      nome: "Pedro Lins",
+      email: "pedro@mail.com",
+      ativos: 0,
+      botijoes: [],
+    },
+  ]);
 
-  const cliente1 = {
-    nome: "Jorge",
-    sobrenome: "da Mata",
-    ativos: 2,
-    botijoes: [
-      { nome: "Gás Casa 1", percentual: 58 },
-      { nome: "Gás do Bar", percentual: 73 },
-    ],
-  };
-  
-  const cliente2 = {
-    nome: "Antônio",
-    sobrenome: "Cardoso",
-    ativos: 1,
-    botijoes: [{ nome: "Gás Cozinha", percentual: 15 }],
-  };
+  const [showModal, setShowModal] = useState(false);
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
 
-  const cliente3 = {
-    nome: "Pedro",
-    sobrenome: "Lins",
-    ativos: 0,
-    botijoes: [{ nome: "Gás Casa", percentual: 0 }],
-  };
+  function handleAddCliente() {
+    if (!nome || !email) return;
+
+    setClientes((prev) => [
+      ...prev,
+      {
+        nome,
+        email,
+        ativos: 0,
+        botijoes: [],
+      },
+    ]);
+
+    setNome("");
+    setEmail("");
+    setShowModal(false);
+  }
 
   return (
     <div className={styles.homeContainer}>
+      {/* TOPO */}
       <div className={styles.topDisplay}>
         <img src={logo} alt="Logo" className={styles.appLogo} />
-        <h1 className={styles.title}>Bem Vindo, Administrador!</h1>
+        <h1 className={styles.title}>Bem-vindo, Administrador!</h1>
         <h3 className={styles.subtitle}>
-          Aqui estão consumo dos seus Clientes
+          Aqui estão os consumos dos seus clientes
         </h3>
       </div>
-      <div className={styles.displayClientes}>
-        <Clientes cliente={cliente1} />
-        <Clientes cliente={cliente2} />
-        <Clientes cliente={cliente3} />
+
+      {/* BOTÃO ADICIONAR */}
+      <div className={styles.addClienteWrapper}>
+        <button
+          className={styles.btnAdicionar}
+          onClick={() => setShowModal(true)}
+        >
+          + Adicionar
+        </button>
       </div>
 
-      <div className={styles}></div>
+      {/* LISTA DE CLIENTES */}
+      <div className={styles.displayClientes}>
+        {clientes.map((cliente, index) => (
+          <Clientes key={index} cliente={cliente} />
+        ))}
+      </div>
+
+      {/* MODAL */}
+      {showModal && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modal}>
+            <h2>Novo Cliente</h2>
+
+            <input
+              className={styles.inputCliente}
+              type="text"
+              placeholder="Nome do cliente"
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
+            />
+
+            <input
+              className={styles.inputCliente}
+              type="email"
+              placeholder="Email do cliente"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+
+            <div className={styles.modalActions}>
+              <button className={styles.modalBtnAdd} onClick={handleAddCliente}>
+                Adicionar
+              </button>
+              <button
+                className={styles.modalBtnCancel}
+                onClick={() => setShowModal(false)}
+              >
+                Cancelar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
