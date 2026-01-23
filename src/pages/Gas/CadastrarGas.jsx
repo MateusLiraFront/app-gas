@@ -5,11 +5,17 @@ import { useNavigate } from "react-router-dom";
 
 export default function CadastrarGas() {
   const navigate = useNavigate();
+  localStorage.setItem("hasGas", "true");
+
+  function handleAdicionarGas() {
+    localStorage.setItem("hasGas", "true");
+
+    navigate("/home");
+  }
 
   return (
     <div className={`absolute inset-0 ${styles.defaultContainer}`}>
-      <div className={styles.topDisplay}
-      onClick={()=> navigate(-1)}>
+      <div className={styles.topDisplay} onClick={() => navigate(-1)}>
         <i className={`fa-solid fa-angle-left ${styles.arrow}`} />
         <h3>Novo Gás</h3>
       </div>

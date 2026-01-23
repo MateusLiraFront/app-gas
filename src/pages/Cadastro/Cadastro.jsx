@@ -99,11 +99,12 @@ export default function Login() {
 
             <button
               className={styles.modalBtn}
-              onClick={() =>
+              onClick={() => {
+                localStorage.setItem("hasGas", "false");
                 navigate("/perfil", {
                   state: { email, senha },
-                })
-              }
+                });
+              }}
             >
               Continuar
             </button>

@@ -143,6 +143,39 @@ main {
     background-color: var(--btn-interact);
 }
 
+.emptyState {
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.emptyLabel {
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--text-dark);
+  opacity: 0.85;
+  margin-bottom: 20px;
+}
+
+.btnAdicionarGas {
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: var(--btn-interact);
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btnAdicionarGas:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
 @media (min-width: 800px) {
   .homeContainer {
     max-width: 900px;
