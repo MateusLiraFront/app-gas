@@ -1,68 +1,50 @@
 .defaultContainer {
-  max-width: 80vw;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding-bottom: 80px;
-}
-
-.topDisplay {
-  cursor: pointer;
+  max-width: 100%;
+  padding: 24px;
   display: flex;
-  align-items: center;
-  gap: 8px;
+  justify-content: center;
 }
 
-.arrow {
-  cursor: pointer;
+.return{
+  margin-bottom: 20px;
+   text-decoration: none;
+   color: var(--text-light);
+}
+
+.editContainer{
+ display: flex;
+ flex-direction: column;
+}
+
+.titleEdit{
+  align-self: center;
+  margin-top: 20px;
+  color: var(--text-light);
 }
 
 .cardDisplay {
-  width: 80vw;
-  margin-top: 30px;
-  padding-bottom: 30px;
-
-  background-color: var(--bg-display-dark);
-  color: var(--text-dark);
-  border-radius: 18px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.header {
   width: 100%;
-  padding: 14px;
+  max-width: 480px;
+
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
 
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 18px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
 .title {
-  font-size: 24px;
-  color: var(--text-dark-dark);
-}
-
-.cadastroContainer {
-  width: 90%;
-  max-width: 380px;
-  padding: 16px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-
-  background-color: var(--bg-display);
-  border-radius: 15px;
-}
-
-.title2 {
-  font-size: 14px;
-  color: var(--text-dark-muted);
-  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .infoGroup {
@@ -70,14 +52,19 @@
   flex-direction: column;
   gap: 4px;
 
-  padding: 12px 14px;
-  border-radius: 12px;
-  background-color: #f8fafc;
+  padding: 14px 16px;
+  border-radius: 14px;
+
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
 }
 
 .label {
   font-size: 12px;
-  color: var(--text-light-muted);
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
 }
 
 .infoGroup span:last-child {
@@ -87,57 +74,84 @@
   word-break: break-word;
 }
 
+.cadastroContainer {
+  width: 100%;
+  max-width: 420px;
+  margin-top: 20px;
+
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
 .formGroup {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
 }
 
 .formGroup label {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
-  color: var(--text-dark);
+  color: #374151;
 }
 
 .formGroup input {
-  height: 40px;
-  padding: 0 12px;
+  height: 44px;
+  padding: 0 14px;
 
-  border-radius: 10px;
-  border: 1px solid var(--text-light-muted);
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
 
   font-size: 14px;
+  color: #111827;
   outline: none;
+
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.formGroup input:focus {
+  border-color: var(--btn-interact);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
 }
 
 .btnAdicionar {
-  margin-top: 12px;
-  padding: 12px;
+  margin-top: 16px;
+  height: 46px;
 
   border-radius: 14px;
   border: none;
 
-  background-color: var(--btn-interact);
-  color: #fff;
+  background: var(--btn-interact);
+  color: #ffffff;
 
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btnAdicionar:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 }
 
 @media (min-width: 800px) {
   .title {
-    font-size: 30px;
+    font-size: 24px;
   }
 }
 
-@media (max-width: 800px) {
-  .title {
-    font-size: 24px;
-  }
-
-  .title2 {
-    font-size: 18px;
-    text-align: center;
+@media (max-width: 600px) {
+  .cardDisplay,
+  .cadastroContainer {
+    padding: 20px;
   }
 }

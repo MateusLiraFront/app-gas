@@ -7,16 +7,42 @@ import logFacebook from "../../assets/Facebook.png";
 import logo from "../../assets/logo-header-light.png";
 
 export default function Login() {
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [missingFields, setMissingFields] = useState([]);
+
   const [tipo, setTipo] = useState("Usuário Comum");
   const navigate = useNavigate();
 
   function handleEntrar() {
-    if (tipo === "Usuário Comum") {
-      navigate("/home");
-    } else if (tipo === "Gestor de Cliente") {
-      navigate("/admin/home");
-    }
+  const faltando = [];
+
+  if (!email) faltando.push("E-mail");
+  if (!senha) faltando.push("Senha");
+
+  if (faltando.length > 0) {
+    setMissingFields(faltando);
+    setShowModal(true);
+    return;
   }
+
+  const userData = {
+    email,
+    senha,
+    nome: "Antônio Cardoso",
+    endereco: "Rua dos Programadores, 33",
+    tipo,
+  };
+
+  localStorage.setItem("user", JSON.stringify(userData));
+
+  if (tipo === "Usuário Comum") {
+    navigate("/home");
+  } else {
+    navigate("/admin/home");
+  }
+}
 
   return (
     <div className={styles.loginContainer}>
@@ -32,6 +58,8 @@ export default function Login() {
             type="email"
             placeholder="seuemail@mail.com"
             className={styles.input}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
 
           <label htmlFor="tipo" className={styles.label}>
@@ -55,6 +83,8 @@ export default function Login() {
             type="password"
             placeholder="Senha"
             className={styles.inputSenha}
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
           />
         </div>
 
@@ -86,6 +116,27 @@ export default function Login() {
           </button>
         </div>
       </div>
+      {showModal && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modal}>
+            <h2>Campos obrigatórios</h2><br/>
+            <p>Preencha os seguintes campos:</p>
+
+            <ul>
+              {missingFields.map((field) => (
+                <li key={field}>{field}</li>
+              ))}
+            </ul>
+
+            <button
+              className={styles.modalBtn}
+              onClick={() => setShowModal(false)}
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

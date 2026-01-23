@@ -4,15 +4,21 @@ import { Link } from "react-router-dom";
 import logGoogle from "../../assets/Google.png";
 import logFacebook from "../../assets/Facebook.png";
 import logo from "../../assets/logo-header-light.png";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const [tipo, setTipo] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [tipo, setTipo] = useState("Usuário Comum");
+  const [showModal, setShowModal] = useState(false);
+
+  const navigate = useNavigate();
 
   return (
     <div className={styles.cadastroContainer}>
       <div className={styles.cadastroBox}>
         <picture alt="logo-header-light.png" className={styles.logo}>
-          <source media="(min-hight: 800px)" srcset="" />
+          <source media="(min-hight: 800px)" />
           <img src={logo} alt="logo-header-light.png" className={styles.logo} />
         </picture>
 
@@ -28,6 +34,8 @@ export default function Login() {
             type="email"
             placeholder="seuemail@mail.com"
             className={styles.input}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
 
           <label htmlFor="senha" className={styles.label}>
@@ -38,6 +46,8 @@ export default function Login() {
             type="password"
             placeholder="Senha"
             className={styles.inputSenha}
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
           />
 
           <label htmlFor="tipo" className={styles.label}>
@@ -54,9 +64,15 @@ export default function Login() {
           </select>
         </div>
 
-        <Link className={styles.btnCadastrar} to="/home">
+        <button
+          className={styles.btnCadastrar}
+          onClick={() => {
+            if (!email || !senha) return;
+            setShowModal(true);
+          }}
+        >
           CADASTRAR
-        </Link>
+        </button>
 
         <div className={styles.divisorLogin}>ou faça Login com:</div>
 
@@ -70,6 +86,30 @@ export default function Login() {
           </button>
         </div>
       </div>
+      {showModal && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modal}>
+            <h2>Cadastro realizado!</h2>
+
+            <p>
+              Tipo de conta:
+              <br />
+              <strong className={styles.tipoConta}>{tipo}</strong>
+            </p>
+
+            <button
+              className={styles.modalBtn}
+              onClick={() =>
+                navigate("/perfil", {
+                  state: { email, senha },
+                })
+              }
+            >
+              Continuar
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
