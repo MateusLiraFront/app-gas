@@ -60,9 +60,9 @@ export default function Suporte() {
           </button>
         </form>
 
-        <p className={styles.footerText}>
+        <p className={styles.register}>
           Não possui uma conta?
-          <Link to="/cadastro"> Clique aqui</Link>
+          <Link to="/cadastro" className={styles.register}> Clique aqui</Link>
         </p>
 
         <div className={styles.return} onClick={() => navigate(-1)}>

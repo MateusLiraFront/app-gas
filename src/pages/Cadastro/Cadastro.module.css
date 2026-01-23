@@ -99,30 +99,27 @@
 
 .social_area {
   display: flex;
-  gap: 30px;
+  gap: 40px;
+  margin-top: 10px;
+  margin-bottom: 32px;
 }
 
 .socialBtn {
-  background: #fff;
+  background: transparent;
   border: none;
-  width: 80px;
-  height: 35px;
-  border-radius: 20%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 0;
   cursor: pointer;
-  transition: transform 0.2s;
+}
+
+.socialBtn img {
+  height: 50px;   
+  width: auto;
 }
 
 .socialBtn:hover {
   transform: scale(1.1);
 }
 
-.socialBtn img {
-  height: 180px;
-  width: 200px;
-}
 
 @media(min-width:800px){
   .cadastroBox {
