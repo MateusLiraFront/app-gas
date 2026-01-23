@@ -1,53 +1,66 @@
 main {
   color: var(--text-light);
-  min-width: 100vw;
-  min-height: 87vh;
-  display: flex !important;
-  justify-content: center !important;
-  padding-top: 20px !important;
-  padding-bottom: 80px !important;
+  min-height: calc(100vh - 80px); 
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+
+  padding: 16px 12px 96px;
+  box-sizing: border-box;
 }
 
-.appLogo{
-    margin-bottom: 20px;
+
+.appLogo {
+  width: 100px;
+  margin-bottom: 16px;
 }
 
-.nav{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-     width: 100%;
-    padding: 14px 0;
-}
-
-.gasName{
-    font-size: 22px;
-}
-
-.arrows{
-    font-size: 30px;
-    color: #98add3;
-    cursor: pointer;
-}
-
-.homeContainer{
-  max-width: 80vw;
-}
-
-.card{
-  background-color: var(--bg-display);
-  margin-top: 30px;
-  border-radius: 20px;
+.topDisplay {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: var(--text-dark);
-  padding: 0 15px 15px;
-  box-shadow: 0 16px 15px rgba(0, 0, 0, 0.438);
-  backdrop-filter: blur(5px); 
+  gap: 6px;
 }
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 0;
+}
+
+.gasName {
+  font-size: 18px;
+  text-align: center;
+}
+
+.arrows {
+  font-size: 26px;
+}
+
+.homeContainer {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+
+.card {
+  background-color: var(--bg-display);
+  margin-top: 24px;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: var(--text-dark);
+  padding: 16px;
+
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+}
+
 
 .displayItem{
    display: flex;
@@ -88,13 +101,18 @@ main {
   gap: 80px;
 }
 
-.botaoDetail{
+.botaoDetail {
+  width: 100%;
+  text-align: center;
+
   background-color: var(--btn-interact);
   color: #fff;
-  padding: 8px;
-  border-radius: 10px;
-   text-decoration: none; 
+
+  padding: 10px 0;
+  border-radius: 12px;
+  text-decoration: none;
 }
+
 
 .detalhes{
   display: flex;
@@ -125,13 +143,22 @@ main {
     background-color: var(--btn-interact);
 }
 
-@media(min-width:800px){
-  .appLogo{
-        width: 120px;
-    }
+@media (min-width: 800px) {
+  .homeContainer {
+    max-width: 900px;
+  }
 
-  .homeContainer{
-    padding-bottom: 80px;
+  .displayDetail {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .botija {
+    transform: scale(0.65);
+  }
+
+  .gasName {
+    font-size: 22px;
   }
 }
 
@@ -143,6 +170,7 @@ main {
   .homeContainer{
     height: 95vh;
     padding-bottom: 80px;
+    padding: 0 30px;
   }
 }
 

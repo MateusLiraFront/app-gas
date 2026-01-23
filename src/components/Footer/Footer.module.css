@@ -19,6 +19,7 @@ footer {
   background-color: var(--bg-footer);
   z-index: 1000 !important;
   box-shadow: 0 -2px 4px rgba(0,0,0,0.1) !important;
+  padding-bottom: 30px;
 }
 
 button{
@@ -28,17 +29,69 @@ button{
   cursor: pointer;
 }
 
-.link{
-  text-decoration: none;
-  color: var(--text-light);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.title {
+  font-size: 12px;
+  line-height: 0;
 }
 
-.title{
+
+.link {
+  text-decoration: none;
+  color: var(--text-light);
+
   display: flex;
-  font-size: 12px;
-  margin-top: 8px;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  position: relative;
 }
+
+.link i {
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background-color: transparent;
+
+  font-size: 18px;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+
+.link:hover {
+  transform: scale(1.2);
+}
+
+.active {
+  transform: scale(1.15);
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.active i {
+  background-color: var(--bg-footer); 
+  transform: translateY(-12px) scale(1.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.active .title {
+  font-weight: 500;
+}
+
+
+.configOpen i {
+  background-color: var(--bg-footer);
+  transform: translateY(-8px) scale(1.08);
+}
+
+
+.buttonConfig {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
