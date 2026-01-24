@@ -12,10 +12,16 @@ export default function Dashboard() {
   const consumos = [
     { mes: "jan", kg: 6.5, special: false },
     { mes: "fev", kg: 5.3, special: false },
-    { mes: "mar", kg: 7.8, special: true },
+    { mes: "mar", kg: 7.8, special: false },
     { mes: "abr", kg: 4.9, special: false },
     { mes: "mai", kg: 6.2, special: false },
-    { mes: "jun", kg: 8.1, special: true },
+    { mes: "jun", kg: 8.1, special: false },
+    { mes: "jul", kg: 7.4, special: false },
+    { mes: "ago", kg: 6.9, special: false },
+    { mes: "set", kg: 5.8, special: false },
+    { mes: "out", kg: 7.1, special: false },
+    { mes: "nov", kg: 6.0, special: false },
+    { mes: "dez", kg: 8.6, special: false },
   ];
 
   return (
@@ -66,12 +72,24 @@ export default function Dashboard() {
                 <span>07/01 à 22/03</span>
               </div>
               <div className={styles.periodItem}>
-                <div className={`${styles.dot} ${styles.dotLightGreen}`}></div>
+                <div className={`${styles.dot} ${styles.dotDarkBlue}`}></div>
                 <span>22/03 à 15/05</span>
               </div>
               <div className={styles.periodItem}>
-                <div className={`${styles.dot} ${styles.dotGold}`}></div>
-                <span>15/05 à --/--</span>
+                <div className={`${styles.dot} ${styles.dotDarkBlue}`}></div>
+                <span>15/05 à 09/07</span>
+              </div>
+              <div className={styles.periodItem}>
+                <div className={`${styles.dot} ${styles.dotDarkBlue}`}></div>
+                <span>09/07 à 21/09</span>
+              </div>
+              <div className={styles.periodItem}>
+                <div className={`${styles.dot} ${styles.dotDarkBlue}`}></div>
+                <span>21/09 à 13/11</span>
+              </div>
+              <div className={styles.periodItem}>
+                <div className={`${styles.dot} ${styles.dotDarkBlue}`}></div>
+                <span>13/11 à --/--</span>
               </div>
             </div>
           </div>

@@ -64,14 +64,21 @@
 
 .barsContainer {
   flex: 1;
-  height: 100%; 
+  height: 100%;
   display: flex;
   align-items: flex-end;
-  justify-content: space-around;
+
+  gap: 18px; 
+  padding: 0 10px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
   border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .barWrapper {
+  min-width: 25px;         
   height: 100%;
   display: flex;
   flex-direction: column;
