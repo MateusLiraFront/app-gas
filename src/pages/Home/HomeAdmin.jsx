@@ -4,6 +4,9 @@ import logo from "../../assets/logo-header-light.png";
 import Clientes from "../../components/Clientes/Clientes";
 
 export default function HomeAdmin() {
+  const [modalType, setModalType] = useState("add");
+  const [clienteSelecionado, setClienteSelecionado] = useState(null);
+
   const [clientes, setClientes] = useState([
     {
       nome: "Jorge da Mata",
@@ -32,6 +35,17 @@ export default function HomeAdmin() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
 
+  function handleExcluirCliente() {
+    if (!clienteSelecionado) return;
+
+    setClientes((prev) =>
+      prev.filter((cliente) => cliente.email !== clienteSelecionado.email),
+    );
+
+    setClienteSelecionado(null);
+    setShowModal(false);
+  }
+
   function handleAddCliente() {
     if (!nome || !email) return;
 
@@ -52,7 +66,6 @@ export default function HomeAdmin() {
 
   return (
     <div className={styles.homeContainer}>
-      {/* TOPO */}
       <div className={styles.topDisplay}>
         <img src={logo} alt="Logo" className={styles.appLogo} />
         <h1 className={styles.title}>Bem-vindo, Administrador!</h1>
@@ -61,11 +74,22 @@ export default function HomeAdmin() {
         </h3>
       </div>
 
-      {/* BOTÃO ADICIONAR */}
       <div className={styles.addClienteWrapper}>
         <button
+          className={styles.btnExcluir}
+          onClick={() => {
+            setModalType("delete");
+            setShowModal(true);
+          }}
+        >
+          - Excluir
+        </button>
+        <button
           className={styles.btnAdicionar}
-          onClick={() => setShowModal(true)}
+          onClick={() => {
+            setModalType("add");
+            setShowModal(true);
+          }}
         >
           + Adicionar
         </button>
@@ -82,35 +106,79 @@ export default function HomeAdmin() {
       {showModal && (
         <div className={styles.modalOverlay}>
           <div className={styles.modal}>
-            <h2>Novo Cliente</h2>
+            {modalType === "add" ? (
+              <>
+                <h2>Novo Cliente</h2>
 
-            <input
-              className={styles.inputCliente}
-              type="text"
-              placeholder="Nome do cliente"
-              value={nome}
-              onChange={(e) => setNome(e.target.value)}
-            />
+                <input
+                  className={styles.inputCliente}
+                  type="text"
+                  placeholder="Nome do cliente"
+                  value={nome}
+                  onChange={(e) => setNome(e.target.value)}
+                />
 
-            <input
-              className={styles.inputCliente}
-              type="email"
-              placeholder="Email do cliente"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+                <input
+                  className={styles.inputCliente}
+                  type="email"
+                  placeholder="Email do cliente"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
 
-            <div className={styles.modalActions}>
-              <button className={styles.modalBtnAdd} onClick={handleAddCliente}>
-                Adicionar
-              </button>
-              <button
-                className={styles.modalBtnCancel}
-                onClick={() => setShowModal(false)}
-              >
-                Cancelar
-              </button>
-            </div>
+                <div className={styles.modalActions}>
+                  <button
+                    className={styles.modalBtnAdd}
+                    onClick={handleAddCliente}
+                  >
+                    Adicionar
+                  </button>
+                  <button
+                    className={styles.modalBtnCancel}
+                    onClick={() => setShowModal(false)}
+                  >
+                    Cancelar
+                  </button>
+                </div>
+              </>
+            ) : (
+              <>
+                <h2>Excluir Cliente</h2>
+
+                <select
+                  className={styles.inputCliente}
+                  value={clienteSelecionado?.email || ""}
+                  onChange={(e) =>
+                    setClienteSelecionado(
+                      clientes.find((c) => c.email === e.target.value),
+                    )
+                  }
+                >
+                  <option value="">Selecione um cliente</option>
+                  {clientes.map((cliente) => (
+                    <option key={cliente.email} value={cliente.email}>
+                      {cliente.nome}
+                    </option>
+                  ))}
+                </select>
+
+                <div className={styles.modalActions}>
+                  <button
+                    className={styles.modalBtnDelete}
+                    onClick={handleExcluirCliente}
+                    disabled={!clienteSelecionado}
+                  >
+                    Excluir
+                  </button>
+                  <button
+                    className={styles.modalBtnCancel}
+                    onClick={() => setShowModal(false)}
+                  >
+                    Cancelar
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         </div>
       )}
