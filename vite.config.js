@@ -7,7 +7,7 @@ export default defineConfig({
     host: true,
     port: 5173,
     allowedHosts: [
-      'nonenticing-past-rocco.ngrok-free.dev'
+      'tetragonally-guardianless-lacy.ngrok-free.dev'
     ]
   },
   plugins: [react()],
