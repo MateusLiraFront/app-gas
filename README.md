@@ -1,16 +1,75 @@
-# React + Vite
+# app-gas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto front-end (React + Vite) do sistema de gas.
 
-Currently, two official plugins are available:
+## Requisitos
+- Node.js + npm (versoes que suportem Vite 7)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Como rodar localmente
+1) Instale as dependencias:
+   ```bash
+   npm install
+   ```
+2) Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+3) Abra no navegador:
+   ```
+   http://localhost:5173
+   ```
 
-## React Compiler
+## Usando ngrok (para compartilhar o app)
+O projeto ja esta configurado para aceitar um host externo pelo Vite.
+Voce so precisa atualizar o dominio do ngrok no `vite.config.js`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1) Rode o app:
+   ```bash
+   npm run dev
+   ```
+2) Em outro terminal, rode o ngrok apontando para a porta do Vite:
+   ```bash
+   ngrok http 5173
+   ```
+3) Copie a URL `https://...ngrok-free.dev` gerada e atualize:
+   - `vite.config.js` -> `server.allowedHosts`
+   - Substitua o dominio antigo pelo novo dominio do ngrok.
 
-## Expanding the ESLint configuration
+Depois disso, recarregue o navegador e use a URL do ngrok.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+> Dica: se voce gerar um novo link do ngrok, precisa atualizar o
+> `allowedHosts` de novo.
+
+## Build e preview
+- Gerar build de producao:
+  ```bash
+  npm run build
+  ```
+- Visualizar o build localmente:
+  ```bash
+  npm run preview
+  ```
+
+## Lint
+```bash
+npm run lint
+```
+
+## Testes
+Nao ha testes automatizados configurados neste projeto.
+Se precisar validar, use o lint e testes manuais na UI.
+
+## Rotas principais
+- `/` (splash)
+- `/login`
+- `/cadastro`
+- `/suporte`
+- `/home`
+- `/dashboard`
+- `/dashgeral`
+- `/perfil`
+- `/cadastrar-gas`
+- `/editar-gas`
+- `/endereco`
+- `/admin/home`
+- `/admin/perfil`
