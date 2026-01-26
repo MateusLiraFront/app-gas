@@ -6,24 +6,67 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [hasGas, setHasGas] = useState(true);
+  const [nome, setNome] = useState("");
+  const [isLoadingUser, setIsLoadingUser] = useState(false);
   const DataInstalacao = new Date("2026-01-08");
   const Termino = new Date("2026-03-22");
   const PrevisaoDuracao = Math.ceil(
     (Termino - DataInstalacao) / (1000 * 60 * 60 * 24),
   );
+  const API_BASE = import.meta.env.VITE_API_URL || "/api";
 
   useEffect(() => {
     const gasStatus = localStorage.getItem("hasGas");
     if (gasStatus === "false") {
       setHasGas(false);
     }
+
+    const storedUser = JSON.parse(localStorage.getItem("user") || "null");
+    if (storedUser?.nome) {
+      setNome(storedUser.nome);
+    }
+
+    const auth = JSON.parse(localStorage.getItem("auth") || "null");
+    const token = auth?.token || localStorage.getItem("token");
+    const tokenType = auth?.tokenType || "Bearer";
+
+    if (!token) return;
+
+    setIsLoadingUser(true);
+    fetch(`${API_BASE}/users/profile`, {
+      headers: {
+        Authorization: `${tokenType} ${token}`,
+      },
+    })
+      .then(async (response) => {
+        if (!response.ok) {
+          throw new Error("Falha ao buscar perfil");
+        }
+        const profile = await response.json().catch(() => ({}));
+        const nomeApi = profile.name || profile.nome || storedUser?.nome;
+        if (nomeApi) {
+          setNome(nomeApi);
+          localStorage.setItem(
+            "user",
+            JSON.stringify({
+              ...(storedUser || {}),
+              nome: nomeApi,
+              email: profile.email || storedUser?.email || "",
+            }),
+          );
+        }
+      })
+      .catch(() => {})
+      .finally(() => setIsLoadingUser(false));
   }, []);
 
   return (
     <div className={styles.homeContainer}>
       <div className={styles.topDisplay}>
         <img src={logo} alt="Logo" className={styles.appLogo} />
-        <h1 className={styles.title}>Olá, Cláudio!</h1>
+        <h1 className={styles.title}>
+          {nome ? `Olá, ${nome}!` : isLoadingUser ? "Olá..." : "Olá!"}
+        </h1>
         <h3 className={styles.subtitle}>Aqui está o consumo do seu gás</h3>
       </div>
 

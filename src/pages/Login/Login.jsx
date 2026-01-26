@@ -11,38 +11,103 @@ export default function Login() {
   const [senha, setSenha] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [missingFields, setMissingFields] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const [tipo, setTipo] = useState("Usuário Comum");
   const navigate = useNavigate();
 
-  function handleEntrar() {
-  const faltando = [];
+  const API_BASE = import.meta.env.VITE_API_URL || "/api";
 
-  if (!email) faltando.push("E-mail");
-  if (!senha) faltando.push("Senha");
+  async function handleEntrar() {
+    const faltando = [];
 
-  if (faltando.length > 0) {
-    setMissingFields(faltando);
-    setShowModal(true);
-    return;
+    if (!email) faltando.push("E-mail");
+    if (!senha) faltando.push("Senha");
+
+    if (faltando.length > 0) {
+      setMissingFields(faltando);
+      setShowModal(true);
+      return;
+    }
+
+    setShowModal(false);
+    setMissingFields([]);
+    setErrorMessage("");
+    setIsLoading(true);
+
+    const isAdmin = tipo !== "Usuário Comum";
+    const endpoint = isAdmin ? "/admin/auth/login" : "/auth/login";
+
+    try {
+      const response = await fetch(`${API_BASE}${endpoint}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, senha }),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(data.message || "Erro ao fazer login");
+      }
+
+      if (!data.token) {
+        throw new Error("Token não retornado pela API");
+      }
+
+      const role = isAdmin ? "admin" : "cliente";
+      const tokenType = data.tokenType || "Bearer";
+
+      localStorage.setItem(
+        "auth",
+        JSON.stringify({ token: data.token, tokenType, role }),
+      );
+      localStorage.setItem("token", data.token);
+
+      let userData = {
+        nome: "",
+        endereco: "",
+        email,
+        tipo,
+      };
+
+      if (!isAdmin) {
+        const profileResponse = await fetch(`${API_BASE}/users/profile`, {
+          headers: {
+            Authorization: `${tokenType} ${data.token}`,
+          },
+        });
+
+        if (profileResponse.ok) {
+          const profile = await profileResponse.json().catch(() => ({}));
+          userData = {
+            ...userData,
+            nome: profile.name || profile.nome || userData.nome,
+            email: profile.email || userData.email,
+          };
+        } else {
+          userData.nome = email.split("@")[0] || userData.nome;
+        }
+      } else {
+        userData.nome = email.split("@")[0] || "Admin";
+      }
+
+      localStorage.setItem("user", JSON.stringify(userData));
+
+      if (isAdmin) {
+        navigate("/admin/home");
+      } else {
+        navigate("/home");
+      }
+    } catch (error) {
+      setErrorMessage(error.message || "Erro ao fazer login");
+    } finally {
+      setIsLoading(false);
+    }
   }
-
-  const userData = {
-    email,
-    senha,
-    nome: "Antônio Cardoso",
-    endereco: "Rua dos Programadores, 33",
-    tipo,
-  };
-
-  localStorage.setItem("user", JSON.stringify(userData));
-
-  if (tipo === "Usuário Comum") {
-    navigate("/home");
-  } else {
-    navigate("/admin/home");
-  }
-}
 
   return (
     <div className={styles.loginContainer}>
@@ -59,7 +124,10 @@ export default function Login() {
             placeholder="seuemail@mail.com"
             className={styles.input}
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              if (errorMessage) setErrorMessage("");
+            }}
           />
 
           <label htmlFor="tipo" className={styles.label}>
@@ -84,7 +152,10 @@ export default function Login() {
             placeholder="Senha"
             className={styles.inputSenha}
             value={senha}
-            onChange={(e) => setSenha(e.target.value)}
+            onChange={(e) => {
+              setSenha(e.target.value);
+              if (errorMessage) setErrorMessage("");
+            }}
           />
         </div>
 
@@ -93,8 +164,16 @@ export default function Login() {
           <span className={styles.linkText}>Recupere aqui</span>
         </Link>
 
-        <button className={styles.btnLogin} onClick={handleEntrar}>
-          ENTRAR
+        {errorMessage && (
+          <div className={styles.errorMessage}>{errorMessage}</div>
+        )}
+
+        <button
+          className={styles.btnLogin}
+          onClick={handleEntrar}
+          disabled={isLoading}
+        >
+          {isLoading ? "ENTRANDO..." : "ENTRAR"}
         </button>
 
         <p className={styles.footerText}>

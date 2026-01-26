@@ -9,19 +9,49 @@ import { useNavigate } from "react-router-dom";
 export default function Suporte() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
+  const [tipo, setTipo] = useState("Usuário Comum");
   const [isLoading, setIsLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const API_BASE = import.meta.env.VITE_API_URL || "/api";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email) return;
+    if (!email) {
+      setErrorMessage("Informe o e-mail.");
+      return;
+    }
 
     setIsLoading(true);
+    setErrorMessage("");
 
-    setTimeout(() => {
-      setIsLoading(false);
+    const isAdmin = tipo !== "Usuário Comum";
+    const endpoint = isAdmin
+      ? "/admin/auth/forgot-password"
+      : "/auth/forgot-password";
+
+    try {
+      const response = await fetch(`${API_BASE}${endpoint}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(data.message || "Erro ao enviar email");
+      }
+
       setShowModal(true);
-    }, 500);
+    } catch (error) {
+      setErrorMessage(error.message || "Erro ao enviar email");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleSocialLogin = (provider) => {
@@ -48,9 +78,29 @@ export default function Suporte() {
             type="email"
             placeholder="seu@email.com"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              if (errorMessage) setErrorMessage("");
+            }}
             required
           />
+
+          <label className={styles.label} htmlFor="tipo">
+            Tipo de conta
+          </label>
+          <select
+            id="tipo"
+            className={styles.selectTipo}
+            value={tipo}
+            onChange={(e) => setTipo(e.target.value)}
+          >
+            <option value="Usuário Comum">Usuário Comum</option>
+            <option value="Gestor de Cliente">Gestor de Cliente</option>
+          </select>
+
+          {errorMessage && (
+            <div className={styles.errorMessage}>{errorMessage}</div>
+          )}
 
           <button
             className={styles.btnLogin}

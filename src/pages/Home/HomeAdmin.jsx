@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Home.module.css";
 import logo from "../../assets/logo-header-light.png";
 import Clientes from "../../components/Clientes/Clientes";
@@ -6,6 +6,9 @@ import Clientes from "../../components/Clientes/Clientes";
 export default function HomeAdmin() {
   const [modalType, setModalType] = useState("add");
   const [clienteSelecionado, setClienteSelecionado] = useState(null);
+  const [nomeAdmin, setNomeAdmin] = useState("");
+  const [isLoadingAdmin, setIsLoadingAdmin] = useState(false);
+  const API_BASE = import.meta.env.VITE_API_URL || "/api";
 
   const [clientes, setClientes] = useState([
     {
@@ -34,6 +37,46 @@ export default function HomeAdmin() {
   const [showModal, setShowModal] = useState(false);
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("user") || "null");
+    if (storedUser?.nome) {
+      setNomeAdmin(storedUser.nome);
+    }
+
+    const auth = JSON.parse(localStorage.getItem("auth") || "null");
+    const token = auth?.token || localStorage.getItem("token");
+    const tokenType = auth?.tokenType || "Bearer";
+
+    if (!token) return;
+
+    setIsLoadingAdmin(true);
+    fetch(`${API_BASE}/admin/profile`, {
+      headers: {
+        Authorization: `${tokenType} ${token}`,
+      },
+    })
+      .then(async (response) => {
+        if (!response.ok) {
+          throw new Error("Falha ao buscar perfil");
+        }
+        const profile = await response.json().catch(() => ({}));
+        const nomeApi = profile.name || profile.nome || storedUser?.nome;
+        if (nomeApi) {
+          setNomeAdmin(nomeApi);
+          localStorage.setItem(
+            "user",
+            JSON.stringify({
+              ...(storedUser || {}),
+              nome: nomeApi,
+              email: profile.email || storedUser?.email || "",
+            }),
+          );
+        }
+      })
+      .catch(() => {})
+      .finally(() => setIsLoadingAdmin(false));
+  }, []);
 
   function handleExcluirCliente() {
     if (!clienteSelecionado) return;
@@ -68,7 +111,13 @@ export default function HomeAdmin() {
     <div className={styles.homeContainer}>
       <div className={styles.topDisplay}>
         <img src={logo} alt="Logo" className={styles.appLogo} />
-        <h1 className={styles.title}>Bem-vindo, Administrador!</h1>
+        <h1 className={styles.title}>
+          {nomeAdmin
+            ? `Bem-vindo, ${nomeAdmin}!`
+            : isLoadingAdmin
+              ? "Bem-vindo..."
+              : "Bem-vindo, Administrador!"}
+        </h1>
         <h3 className={styles.subtitle}>
           Aqui estão os consumos dos seus clientes
         </h3>

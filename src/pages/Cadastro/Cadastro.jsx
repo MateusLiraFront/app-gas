@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "./Cadastro.module.css";
-import { Link } from "react-router-dom";
 import logGoogle from "../../assets/Google.png";
 import logFacebook from "../../assets/Facebook.png";
 import logo from "../../assets/logo-header-light.png";
@@ -11,8 +10,63 @@ export default function Login() {
   const [senha, setSenha] = useState("");
   const [tipo, setTipo] = useState("Usuário Comum");
   const [showModal, setShowModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
+  const API_BASE = import.meta.env.VITE_API_URL || "/api";
+
+  const handleCadastrar = async () => {
+    if (!email || !senha) {
+      setErrorMessage("Preencha e-mail e senha.");
+      return;
+    }
+
+    setIsLoading(true);
+    setErrorMessage("");
+
+    const isAdmin = tipo !== "Usuário Comum";
+    const endpoint = isAdmin ? "/admin/register" : "/auth/register";
+    const nomeFallback = email.split("@")[0] || "Usuario";
+
+    try {
+      const response = await fetch(`${API_BASE}${endpoint}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nome: nomeFallback,
+          email,
+          senha,
+        }),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(data.message || "Erro ao cadastrar");
+      }
+
+      const nomeRegistrado = data.name || data.nome || nomeFallback;
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          nome: nomeRegistrado,
+          endereco: "",
+          email,
+          senha,
+          tipo,
+        }),
+      );
+
+      setShowModal(true);
+    } catch (error) {
+      setErrorMessage(error.message || "Erro ao cadastrar");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className={styles.cadastroContainer}>
@@ -35,7 +89,10 @@ export default function Login() {
             placeholder="seuemail@mail.com"
             className={styles.input}
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              if (errorMessage) setErrorMessage("");
+            }}
           />
 
           <label htmlFor="senha" className={styles.label}>
@@ -47,7 +104,10 @@ export default function Login() {
             placeholder="Senha"
             className={styles.inputSenha}
             value={senha}
-            onChange={(e) => setSenha(e.target.value)}
+            onChange={(e) => {
+              setSenha(e.target.value);
+              if (errorMessage) setErrorMessage("");
+            }}
           />
 
           <label htmlFor="tipo" className={styles.label}>
@@ -66,13 +126,15 @@ export default function Login() {
 
         <button
           className={styles.btnCadastrar}
-          onClick={() => {
-            if (!email || !senha) return;
-            setShowModal(true);
-          }}
+          onClick={handleCadastrar}
+          disabled={isLoading}
         >
-          CADASTRAR
+          {isLoading ? "CADASTRANDO..." : "CADASTRAR"}
         </button>
+
+        {errorMessage && (
+          <div className={styles.errorMessage}>{errorMessage}</div>
+        )}
 
         <div className={styles.divisorLogin}>ou faça Login com:</div>
 

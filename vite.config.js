@@ -8,7 +8,14 @@ export default defineConfig({
     port: 5173,
     allowedHosts: [
       'tetragonally-guardianless-lacy.ngrok-free.dev'
-    ]
+    ],
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
   },
   plugins: [react()],
 })

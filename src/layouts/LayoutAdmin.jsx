@@ -73,14 +73,18 @@ export default function LayoutAdmin() {
                 Cancelar
               </button>
 
-              <button
-                onClick={() => {
-                  setShowLogoutModal(false);
-                  setIsOpen(false);
-                  window.location.href = "/login";
-                }}
-                className={styles.btnSair}
-              >
+                <button
+                  onClick={() => {
+                    setShowLogoutModal(false);
+                    setIsOpen(false);
+                    localStorage.removeItem("auth");
+                    localStorage.removeItem("token");
+                    localStorage.removeItem("user");
+                    localStorage.removeItem("hasGas");
+                    window.location.href = "/login";
+                  }}
+                  className={styles.btnSair}
+                >
                 Sair
               </button>
             </div>

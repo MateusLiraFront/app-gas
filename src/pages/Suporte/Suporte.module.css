@@ -48,6 +48,18 @@
   font-size: 15px;
 }
 
+.selectTipo {
+  width: 100%;
+  height: 52px;
+  border-radius: 16px;
+  border: none;
+  padding: 0 16px;
+  margin-bottom: 16px;
+  font-size: 15px;
+  background: var(--text-light);
+  color: var(--text-dark);
+}
+
 .btnLogin {
   width: 100%;
   height: 48px;
@@ -58,6 +70,19 @@
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 20px;
+}
+
+.btnLogin:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.errorMessage {
+  width: 100%;
+  margin: -4px 0 12px;
+  font-size: 12px;
+  color: var(--color-danger);
+  text-align: center;
 }
 
 .register {
